@@ -1,0 +1,16 @@
+<img src="image-0.png" border=1>
+<img src="image-1.png" border=1><br>
+<img src="image-2.png" border=1>
+<img src="image-3.png" border=1>
+<div id="h"></div>
+<script>
+    setTimeout(()=>{
+        document.location.reload();
+    }, 1000)
+
+    let h = document.getElementById("h");
+
+    setInterval(() => {
+        h.innerHTML = '<img src="res.png?'+Math.random()+'">';
+    }, 1000);
+</script>

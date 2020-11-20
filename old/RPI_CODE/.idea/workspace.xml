@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c032148-5933-4679-9ea8-91ef8d4088c7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1cpGCXXVAa5avWosqTpoiJgiAgF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jSerialComm-2.6.2.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\RPI_CODE\lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hu.johetajava.Main" />
+      <module name="RPI_CODE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c032148-5933-4679-9ea8-91ef8d4088c7" name="Default Changelist" comment="" />
+      <created>1591217993878</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591217993878</updated>
+      <workItem from="1591217997828" duration="7261000" />
+      <workItem from="1591288562645" duration="5023000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591250466410">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591250466410" />
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1591251664912">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591251664912" />
+    <state x="287" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591288729816">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="287" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591288729816" />
+    <state x="389" y="105" key="FileChooserDialogImpl" timestamp="1591218106735">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591218106735" />
+    <state width="661" height="200" key="GridCell.Tab.0.bottom" timestamp="1591820239717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="200" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591820239717" />
+    <state width="661" height="200" key="GridCell.Tab.0.center" timestamp="1591820239716">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="200" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591820239716" />
+    <state width="661" height="200" key="GridCell.Tab.0.left" timestamp="1591820239716">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="200" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591820239716" />
+    <state width="661" height="200" key="GridCell.Tab.0.right" timestamp="1591820239716">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="200" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591820239716" />
+    <state width="1305" height="216" key="GridCell.Tab.1.bottom" timestamp="1591254439279">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1305" height="216" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591254439279" />
+    <state width="1305" height="216" key="GridCell.Tab.1.center" timestamp="1591254439278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1305" height="216" key="GridCell.Tab.1.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591254439278" />
+    <state width="1305" height="216" key="GridCell.Tab.1.left" timestamp="1591254439278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1305" height="216" key="GridCell.Tab.1.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591254439278" />
+    <state width="1305" height="216" key="GridCell.Tab.1.right" timestamp="1591254439278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1305" height="216" key="GridCell.Tab.1.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591254439278" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1591218110050">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1591218110050" />
+  </component>
+</project>
