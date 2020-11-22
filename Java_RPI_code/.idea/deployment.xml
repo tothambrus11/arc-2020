@@ -12,7 +12,7 @@
       <paths name="raspberrypi">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$/target" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
