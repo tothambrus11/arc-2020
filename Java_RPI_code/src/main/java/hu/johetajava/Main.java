@@ -3,7 +3,6 @@ package hu.johetajava;
 import com.hopding.jrpicam.RPiCamera;
 import com.hopding.jrpicam.enums.AWB;
 import com.hopding.jrpicam.enums.Encoding;
-import com.pi4j.io.gpio.GpioController;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class Main {
-    public static GpioController gpio;
     public static RPiCamera piCamera;
 
     private static boolean dir;
@@ -103,7 +101,7 @@ public class Main {
         arm.closeRight(true);
         arm.up(true);
         arm.setPos(0f, true);
-        arm.setPos(-1100f, true);
+        arm.setPos(-1100f, true);bran
         arm.down(true);
         arm.closeLeft(true);
         arm.setPos((float) -elt, true);
@@ -171,11 +169,4 @@ public class Main {
 
         return average;
     }
-}
-
-class Key {
-}
-
-class Data {
-
 }
