@@ -33,8 +33,9 @@ public class Chassis {
      */
     void turnRotations(Float rotations, int speed, boolean wait) {
         prizm.sendMessage(TOPIC_TURN_ROTATIONS, rotations.toString().getBytes());
-        prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 0 : 1));
+        prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 1 : 0));
         if (wait) {
+            System.out.println("TR waiting for ok");
             prizm.waitForOk();
         }
     }
@@ -49,7 +50,7 @@ public class Chassis {
 
     void go(Float units, int speed, boolean wait) {
         prizm.sendMessage(TOPIC_GO_FORWARD_UNITS, units.toString().getBytes());
-        prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 0 : 1));
+        prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 1 : 0));
         if (wait) {
             prizm.waitForOk();
         }
@@ -72,6 +73,12 @@ public class Chassis {
             stopLeft();
         }
         System.out.println("Edge reached.");
+    }
+
+    void goToEdgePrecise(){
+        goToEdge(40);
+        go(-0.1f, 20, true);
+        goToEdge(20);
     }
 
 

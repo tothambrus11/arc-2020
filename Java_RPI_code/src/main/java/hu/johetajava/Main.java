@@ -21,9 +21,9 @@ public class Main {
     public static double[] args;
 
     public static boolean stopped = false;
-    private static Chassis chassis;
-    private static Prizm prizm;
-    private static Arm arm;
+    static Chassis chassis;
+    static Prizm prizm;
+    static Arm arm;
 
     // Args [port]
     public static void main(String[] args) throws Exception {
@@ -50,17 +50,66 @@ public class Main {
 
         chassis = new Chassis(prizm);
         arm = new Arm(prizm);
-
-        chassis.goToEdge(60);
-
-        while (true) {
-            arm.closeLeft(false);
-            Thread.sleep(600);
-            arm.closeRight(false);
-            Thread.sleep(600);
+        int elt = Integer.parseInt(args[1]);
+        if(elt != 0){
+            arm.setPos((float) elt, true);
+            return;
         }
-        //prizm.setLEDState(false);
 
+        chassis.turnRotations(2f, 40, true);
+
+
+        chassis.goToEdgePrecise();
+
+        arm.catchCubeRight();
+
+        chassis.go(-1f, 40, true);
+
+        Thread.sleep(500);
+        chassis.turnRotations(-0.5f, 40, true);
+        System.out.println("TR finished");
+        Thread.sleep(500);
+
+        chassis.go(2f,80, true);
+        chassis.goToEdgePrecise();
+        System.out.println("goToEdge finished");
+        chassis.go(-0.06f, 20, true);
+
+        arm.setPos(1100f, true);
+        arm.down(true);
+        chassis.goToEdge(30);
+        arm.closeLeft(true);
+        arm.setPos(-1250f, true);
+        arm.up(true);
+
+        arm.setPos(0f, true);
+
+        /*arm.setPos(1100f, true);
+        arm.down(true);
+        arm.closeLeft(true);
+        arm.up(true);
+        arm.setPos(0f, true);
+        arm.setPos(1100f, true);
+        arm.down(true);
+        arm.closeRight(true);
+        arm.setPos((float) elt, true);
+        arm.up(true);
+        arm.setPos(0f, true);
+
+
+        arm.closeLeft(true);
+        arm.setPos(-1100f, true);
+        arm.down(true);
+        arm.closeRight(true);
+        arm.up(true);
+        arm.setPos(0f, true);
+        arm.setPos(-1100f, true);
+        arm.down(true);
+        arm.closeLeft(true);
+        arm.setPos((float) -elt, true);
+        arm.up(true);
+        arm.setPos(0f, true);
+*/
     }
 
     static void onStart() throws InterruptedException, IOException {
