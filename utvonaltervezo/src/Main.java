@@ -52,7 +52,7 @@ public class Main {
         trueMaps.add(map1);
         trueMaps.add(map2);
         trueMaps.add(map3);
-        trueMaps.add(map4);
+        //trueMaps.add(map4);
 
 
         getNextRoute();
@@ -63,12 +63,13 @@ public class Main {
             System.err.println("elkezdte");
             getNextRoute();
             robot.move(nextRoute);
-            //TODO int wrongMap
+            int wrongMap = -1;
             for (Map map : trueMaps) {
                 for (int i = 0; i < map.pickUpPositions.length; i++) {
                     if (robot.pos.equals(map.pickUpPositions[i])) {
                         if (map.id != trueMap) {
-
+                            wrongMap = map.id;
+                            break;
                         } else {
                             allColors[map.boxes[i].color].known = true;
                             allColors[map.boxes[i].color].boxId = i;
@@ -79,6 +80,21 @@ public class Main {
                         }
                     }
                 }
+                if (wrongMap != -1) {
+                    break;
+                }
+            }
+
+            if (wrongMap != -1) {
+                ArrayList<Map> tempTrueMaps = new ArrayList<>();
+                for (Map map : trueMaps) {
+                    if (map.id != wrongMap) {
+                        tempTrueMaps.add(map);
+                    }
+                }
+
+                trueMaps = new ArrayList<>();
+                trueMaps.addAll(tempTrueMaps);
             }
         }
 
@@ -87,159 +103,6 @@ public class Main {
         getNextRoute();
         robot.move(nextRoute);
     }
-
-    /*
-    private static int letter(char a) {
-        return a - 65;
-    }
-    */
-
-    private static char number(double a) {
-        return (char) (a + 65);
-    }
-
-    /*private static void writeObjects() {
-        System.out.println(
-                "Parking Zone: ("
-                        + number(parkingZone.upper_right.x) + ","
-                        + number(parkingZone.upper_right.y) + ","
-                        + number(parkingZone.lower_right.x) + ","
-                        + number(parkingZone.lower_right.y) + ")"
-        );
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println(
-                    "Box" + (i + 1) + ": ("
-                            + number(map1.boxes[i].pos.x) + ","
-                            + number(map1.boxes[i].pos.y) + ")"
-            );
-        }
-    }*/
-
-    /*
-    private static void getObjects() {
-        //get parking zone position
-        parkingZone = new Parking(
-                new Position(letter(input.charAt(1)), letter(input.charAt(3))),
-                new Position(letter(input.charAt(5)), letter(input.charAt(7)))
-        );
-
-        //get box positions
-        Position posA, posB, middlePos;
-        for (int i = 0; i < 5; i++) {
-            posA = new Position(letter(input.charAt(10 + 9 * i)), letter(input.charAt(12 + 9 * i)));
-            posB = new Position(letter(input.charAt(14 + 9 * i)), letter(input.charAt(16 + 9 * i)));
-            middlePos = new Position((posA.x + posB.x) / 2, (posA.y + posB.y) / 2);
-
-            boxes[i] = new Box(middlePos, i);
-        }
-    }
-
-    private static void calculateDangerZones() {
-        for (int i = 0; i < 5; i++) {
-            dangerZones[i * 5] = new DangerZone(new Position(boxes[i].pos.x - 1, boxes[i].pos.y - 1));
-            dangerZones[i * 5 + 1] = new DangerZone(new Position(boxes[i].pos.x - 1, boxes[i].pos.y + 1));
-            dangerZones[i * 5 + 2] = new DangerZone(new Position(boxes[i].pos.x + 1, boxes[i].pos.y - 1));
-            dangerZones[i * 5 + 3] = new DangerZone(new Position(boxes[i].pos.x + 1, boxes[i].pos.y + 1));
-            dangerZones[i * 5 + 4] = new DangerZone(boxes[i].pos);
-        }
-
-        dangerZones[25] = new DangerZone(parkingZone.upper_right);
-        dangerZones[26] = new DangerZone(parkingZone.lower_right);
-        dangerZones[27] = new DangerZone(parkingZone.lower_left);
-        dangerZones[28] = new DangerZone(parkingZone.upper_left);
-
-        dangerZones[29] = new DangerZone(parkingZone.middle_right);
-        dangerZones[30] = new DangerZone(parkingZone.middle_left);
-        dangerZones[31] = new DangerZone(parkingZone.middle_back);
-    }
-
-    private static void getRobot() {
-        robot = new Robot(
-                new Position(
-                        (parkingZone.lower_right.x + parkingZone.upper_left.x) / 2,
-                        (parkingZone.lower_right.y + parkingZone.upper_left.y) / 2
-                )
-        );
-    }
-
-    private static void getPickUpPositions() {
-        for (int i = 0; i < 5; i++) {
-            int closest;
-
-            if (boxes[i].pos.x < 10) {
-                if (boxes[i].pos.y < 10) {
-                    if (boxes[i].pos.x < boxes[i].pos.y) {
-                        closest = 3;
-                    } else {
-                        closest = 0;
-                    }
-                } else {
-                    if (boxes[i].pos.x < 20 - boxes[i].pos.y) {
-                        closest = 3;
-                    } else {
-                        closest = 2;
-                    }
-                }
-            } else {
-                if (boxes[i].pos.y < 10) {
-                    if (20 - boxes[i].pos.x < boxes[i].pos.y) {
-                        closest = 1;
-                    } else {
-                        closest = 0;
-                    }
-                } else {
-                    if (20 - boxes[i].pos.x < 20 - boxes[i].pos.y) {
-                        closest = 1;
-                    } else {
-                        closest = 2;
-                    }
-                }
-            }
-
-            switch (closest) {
-                case 0:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x, boxes[i].pos.y + (1.05 + Main.robotR)
-                    );
-                    pickUpDirections[i] = 0;
-                    break;
-
-                case 1:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x - (1.05 + Main.robotR), boxes[i].pos.y
-                    );
-                    pickUpDirections[i] = 90;
-                    break;
-
-                case 2:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x, boxes[i].pos.y - (1.05 + Main.robotR)
-                    );
-                    pickUpDirections[i] = 180;
-                    break;
-
-                case 3:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x + (1.05 + Main.robotR), boxes[i].pos.y
-                    );
-                    pickUpDirections[i] = 270;
-                    break;
-            }
-        }
-    }
-
-    private static void getStartPos() {
-        double dx, dy;
-
-        dx = parkingZone.upper_right.x - parkingZone.lower_right.x;
-        dy = parkingZone.upper_right.y - parkingZone.lower_right.y;
-
-        startPos = new Position(robot.pos.x + dx, robot.pos.y + dy);
-
-        homePos = new Position(robot.pos);
-    }
-    */
 
     private static void createFrame() {
         frame = new JFrame("Game");
@@ -710,7 +573,7 @@ class Route {
             }
         }
 
-        if(!finished){
+        if (!finished) {
             startPos = null;
         }
     }
@@ -1030,7 +893,7 @@ class Route {
     double length() {
         double length = 0;
 
-        if(startPos == null) return 1000000;
+        if (startPos == null) return 1000000;
 
         if (stops.size() > 0) {
             length += Math.sqrt(
