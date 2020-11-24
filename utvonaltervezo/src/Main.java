@@ -6,8 +6,8 @@ public class Main {
     //robot params
     final static int robotDInMMs = 270;
     final static double robotR = (double) robotDInMMs / (2 * 115);
-    final static int robotSpeed = 7; //*0.001 tile/s
-    final static double robotTurnSpeed = 0.2; //*1000 degrees/s
+    final static int robotSpeed = 25; //*0.001 tile/s, default: 7
+    final static double robotTurnSpeed = 1.1; //*1000 degrees/s, default: 0.2
 
     //map params, TODO read these
     final static String input1 = "(I,H,G,J)(T,K,R,M)(Q,G,S,I)(D,L,F,N)(O,Q,Q,S)(N,R,L,T)";
@@ -52,7 +52,7 @@ public class Main {
         trueMaps.add(map1);
         trueMaps.add(map2);
         trueMaps.add(map3);
-        trueMaps.add(map4);
+        //trueMaps.add(map4);
 
 
         getNextRoute();
@@ -60,160 +60,49 @@ public class Main {
 
         robot.move(nextRoute);
         while (found < 3) {
+            System.err.println("elkezdte");
             getNextRoute();
             robot.move(nextRoute);
-            for (int i = 0; i < map1.pickUpPositions.length; i++) {
-                if (robot.pos.equals(map1.pickUpPositions[i])) {
-                    allColors[map1.boxes[i].color].known = true;
-                    allColors[map1.boxes[i].color].boxId = i;
-                    if (map1.boxes[i].color == nextColor) {
-                        nextColor = map1.boxes[i].colorOnTop;
-                        found++;
+            int wrongMap = -1;
+            for (Map map : trueMaps) {
+                for (int i = 0; i < map.pickUpPositions.length; i++) {
+                    if (robot.pos.equals(map.pickUpPositions[i])) {
+                        if (map.id != trueMap) {
+                            wrongMap = map.id;
+                            break;
+                        } else {
+                            allColors[map.boxes[i].color].known = true;
+                            allColors[map.boxes[i].color].boxId = i;
+                            if (map.boxes[i].color == nextColor) {
+                                nextColor = map.boxes[i].colorOnTop;
+                                found++;
+                            }
+                        }
                     }
                 }
+                if (wrongMap != -1) {
+                    break;
+                }
+            }
+
+            if (wrongMap != -1) {
+                ArrayList<Map> tempTrueMaps = new ArrayList<>();
+                for (Map map : trueMaps) {
+                    if (map.id != wrongMap) {
+                        tempTrueMaps.add(map);
+                    }
+                }
+
+                trueMaps = new ArrayList<>();
+                trueMaps.addAll(tempTrueMaps);
             }
         }
 
         getNextRoute();
         robot.move(nextRoute);
+        getNextRoute();
+        robot.move(nextRoute);
     }
-
-    /*
-    private static int letter(char a) {
-        return a - 65;
-    }
-    */
-
-    private static char number(double a) {
-        return (char) (a + 65);
-    }
-
-    private static void writeObjects() {
-        System.out.println(
-                "Parking Zone: ("
-                        + number(parkingZone.upper_right.x) + ","
-                        + number(parkingZone.upper_right.y) + ","
-                        + number(parkingZone.lower_right.x) + ","
-                        + number(parkingZone.lower_right.y) + ")"
-        );
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println(
-                    "Box" + (i + 1) + ": ("
-                            + number(map1.boxes[i].pos.x) + ","
-                            + number(map1.boxes[i].pos.y) + ")"
-            );
-        }
-    }
-
-    /*
-    private static void getObjects() {
-        //get parking zone position
-        parkingZone = new Parking(
-                new Position(letter(input.charAt(1)), letter(input.charAt(3))),
-                new Position(letter(input.charAt(5)), letter(input.charAt(7)))
-        );
-        //get box positions
-        Position posA, posB, middlePos;
-        for (int i = 0; i < 5; i++) {
-            posA = new Position(letter(input.charAt(10 + 9 * i)), letter(input.charAt(12 + 9 * i)));
-            posB = new Position(letter(input.charAt(14 + 9 * i)), letter(input.charAt(16 + 9 * i)));
-            middlePos = new Position((posA.x + posB.x) / 2, (posA.y + posB.y) / 2);
-            boxes[i] = new Box(middlePos, i);
-        }
-    }
-    private static void calculateDangerZones() {
-        for (int i = 0; i < 5; i++) {
-            dangerZones[i * 5] = new DangerZone(new Position(boxes[i].pos.x - 1, boxes[i].pos.y - 1));
-            dangerZones[i * 5 + 1] = new DangerZone(new Position(boxes[i].pos.x - 1, boxes[i].pos.y + 1));
-            dangerZones[i * 5 + 2] = new DangerZone(new Position(boxes[i].pos.x + 1, boxes[i].pos.y - 1));
-            dangerZones[i * 5 + 3] = new DangerZone(new Position(boxes[i].pos.x + 1, boxes[i].pos.y + 1));
-            dangerZones[i * 5 + 4] = new DangerZone(boxes[i].pos);
-        }
-        dangerZones[25] = new DangerZone(parkingZone.upper_right);
-        dangerZones[26] = new DangerZone(parkingZone.lower_right);
-        dangerZones[27] = new DangerZone(parkingZone.lower_left);
-        dangerZones[28] = new DangerZone(parkingZone.upper_left);
-        dangerZones[29] = new DangerZone(parkingZone.middle_right);
-        dangerZones[30] = new DangerZone(parkingZone.middle_left);
-        dangerZones[31] = new DangerZone(parkingZone.middle_back);
-    }
-    private static void getRobot() {
-        robot = new Robot(
-                new Position(
-                        (parkingZone.lower_right.x + parkingZone.upper_left.x) / 2,
-                        (parkingZone.lower_right.y + parkingZone.upper_left.y) / 2
-                )
-        );
-    }
-    private static void getPickUpPositions() {
-        for (int i = 0; i < 5; i++) {
-            int closest;
-            if (boxes[i].pos.x < 10) {
-                if (boxes[i].pos.y < 10) {
-                    if (boxes[i].pos.x < boxes[i].pos.y) {
-                        closest = 3;
-                    } else {
-                        closest = 0;
-                    }
-                } else {
-                    if (boxes[i].pos.x < 20 - boxes[i].pos.y) {
-                        closest = 3;
-                    } else {
-                        closest = 2;
-                    }
-                }
-            } else {
-                if (boxes[i].pos.y < 10) {
-                    if (20 - boxes[i].pos.x < boxes[i].pos.y) {
-                        closest = 1;
-                    } else {
-                        closest = 0;
-                    }
-                } else {
-                    if (20 - boxes[i].pos.x < 20 - boxes[i].pos.y) {
-                        closest = 1;
-                    } else {
-                        closest = 2;
-                    }
-                }
-            }
-            switch (closest) {
-                case 0:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x, boxes[i].pos.y + (1.05 + Main.robotR)
-                    );
-                    pickUpDirections[i] = 0;
-                    break;
-                case 1:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x - (1.05 + Main.robotR), boxes[i].pos.y
-                    );
-                    pickUpDirections[i] = 90;
-                    break;
-                case 2:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x, boxes[i].pos.y - (1.05 + Main.robotR)
-                    );
-                    pickUpDirections[i] = 180;
-                    break;
-                case 3:
-                    pickUpPositions[i] = new Position(
-                            boxes[i].pos.x + (1.05 + Main.robotR), boxes[i].pos.y
-                    );
-                    pickUpDirections[i] = 270;
-                    break;
-            }
-        }
-    }
-    private static void getStartPos() {
-        double dx, dy;
-        dx = parkingZone.upper_right.x - parkingZone.lower_right.x;
-        dy = parkingZone.upper_right.y - parkingZone.lower_right.y;
-        startPos = new Position(robot.pos.x + dx, robot.pos.y + dy);
-        homePos = new Position(robot.pos);
-    }
-    */
 
     private static void createFrame() {
         frame = new JFrame("Game");
@@ -240,20 +129,26 @@ public class Main {
 
     static void getNextRoute() {
         if (found == 3) {
-            nextRoute = new Route(robot.pos, homePos);
+            if (robot.pos.equals(startPos)) {
+                nextRoute = new Route(robot.pos, homePos);
+            } else {
+                nextRoute = new Route(robot.pos, startPos);
+            }
         } else if (robot.pos.equals(homePos)) {
             nextRoute = new Route(robot.pos, startPos);
         } else if (isKnown(nextColor)) {
-            Position posTo = new Position(Main.map1.pickUpPositions[allColors[nextColor].boxId]);
+            Position posTo = new Position(Main.trueMaps.get(0).pickUpPositions[allColors[nextColor].boxId]);
             nextRoute = new Route(robot.pos, posTo);
         } else {
             Route shortestRoute = null;
-            for (int i = 0; i < map1.pickUpPositions.length; i++) {
-                Route route = new Route(robot.pos, map1.pickUpPositions[i]);
+            for (Map map : trueMaps) {
+                for (int i = 0; i < map.pickUpPositions.length; i++) {
+                    Route route = new Route(robot.pos, map.pickUpPositions[i]);
 
-                if (!allColors[map1.boxes[i].color].known) {
-                    if (shortestRoute == null || route.length() < shortestRoute.length()) {
-                        shortestRoute = new Route(route);
+                    if (!allColors[map.boxes[i].color].known) {
+                        if (shortestRoute == null || route.length() < shortestRoute.length()) {
+                            shortestRoute = new Route(route);
+                        }
                     }
                 }
             }
@@ -288,8 +183,10 @@ class Position {
     }
 
     boolean inDanger() {
-        for (DangerZone dangerZone : Main.map1.dangerZones) {
-            if (dist(dangerZone.center) <= Main.robotR) return true;
+        for (Map map : Main.trueMaps) {
+            for (DangerZone dangerZone : map.dangerZones) {
+                if (dist(dangerZone.center) <= Main.robotR) return true;
+            }
         }
 
         return false;
@@ -538,10 +435,12 @@ class Robot {
 
         moveTo(route.endPos);
 
-        for (int i = 0; i < Main.map1.pickUpPositions.length; i++) {
-            if (Main.map1.pickUpPositions[i].equals(route.endPos)) {
-                turnTo(Main.map1.pickUpDirections[i]);
-                break;
+        for (Map map : Main.trueMaps) {
+            for (int i = 0; i < map.pickUpPositions.length; i++) {
+                if (map.pickUpPositions[i].equals(route.endPos)) {
+                    turnTo(map.pickUpDirections[i]);
+                    break;
+                }
             }
         }
     }
@@ -617,9 +516,9 @@ class Route {
         this.startPos = startPos;
         this.endPos = endPos;
 
-        //calcAsCircle();
         calcAsGrid();
-        //calcAsRectangle();
+
+        System.out.println("route found");
     }
 
     Route(Route route) {
@@ -635,7 +534,10 @@ class Route {
         possibleRoutes.add(this);
 
         boolean finished = noCross();
-        while (!finished) {
+        int limit = 0;
+        while (!finished && limit < 2) {
+            limit++;
+            System.out.println("calculating..." + possibleRoutes.size());
             ArrayList<Route> tempPossibleRoutes = new ArrayList<>();
 
             for (Route route : possibleRoutes) {
@@ -670,6 +572,10 @@ class Route {
                 possibleRoutes.addAll(tempPossibleRoutes);
             }
         }
+
+        if (!finished) {
+            startPos = null;
+        }
     }
 
     /*
@@ -679,28 +585,39 @@ class Route {
         int a = 0;
         while (!finished) {
             finished = true;
+
             ArrayList<Route> tempPossibleRoutes = new ArrayList<>();
+
             System.out.println(a);
             a++;
+
             for (int i = 0; i < possibleRoutes.size(); i++) {
                 Route route = possibleRoutes.get(i);
+
                 Position[] stopAtPos;
                 int where;
+
+
                 if (route.stops.size() == 0) {
                     stopAtPos = whereToAddStop(route.startPos, route.endPos);
                     where = 0;
+
                     if (stopAtPos != null) {
                         Position[] stopPos = stopPos(stopAtPos);
+
                         Route newRoute1 = addedStop(
                                 route, new Position[]{stopPos[0], stopPos[1]}, where
                         );
+
                         Route newRoute2 = addedStop(
                                 route, new Position[]{stopPos[2], stopPos[3]}, where
                         );
+
                         if (!newRoute1.isIn(possibleRoutes) && !newRoute1.isIn(tempPossibleRoutes)) {
                             tempPossibleRoutes.add(newRoute1);
                             finished = false;
                         }
+
                         if (!newRoute2.isIn(possibleRoutes) && !newRoute2.isIn(tempPossibleRoutes)) {
                             tempPossibleRoutes.add(newRoute2);
                             finished = false;
@@ -709,58 +626,75 @@ class Route {
                 } else {
                     stopAtPos = whereToAddStop(route.startPos, route.stops.get(0));
                     where = 0;
+
                     if (stopAtPos != null) {
                         Position[] stopPos = stopPos(stopAtPos);
+
                         Route newRoute1 = addedStop(
                                 route, new Position[]{stopPos[0], stopPos[1]}, where
                         );
+
                         Route newRoute2 = addedStop(
                                 route, new Position[]{stopPos[2], stopPos[3]}, where
                         );
+
                         if (!newRoute1.isIn(possibleRoutes) && !newRoute1.isIn(tempPossibleRoutes)) {
                             tempPossibleRoutes.add(newRoute1);
                             finished = false;
                         }
+
                         if (!newRoute2.isIn(possibleRoutes) && !newRoute2.isIn(tempPossibleRoutes)) {
                             tempPossibleRoutes.add(newRoute2);
                             finished = false;
                         }
                     }
+
                     for (int j = 1; j < route.stops.size() - 1; j++) {
                         stopAtPos = whereToAddStop(route.stops.get(j - 1), route.stops.get(j));
                         where = j;
+
                         if (stopAtPos != null) {
                             Position[] stopPos = stopPos(stopAtPos);
+
                             Route newRoute1 = addedStop(
                                     route, new Position[]{stopPos[0], stopPos[1]}, where
                             );
+
                             Route newRoute2 = addedStop(
                                     route, new Position[]{stopPos[2], stopPos[3]}, where
                             );
+
                             if (!newRoute1.isIn(possibleRoutes) && !newRoute1.isIn(tempPossibleRoutes)) {
                                 tempPossibleRoutes.add(newRoute1);
                                 finished = false;
                             }
+
                             if (!newRoute2.isIn(possibleRoutes) && !newRoute2.isIn(tempPossibleRoutes)) {
                                 tempPossibleRoutes.add(newRoute2);
                                 finished = false;
                             }
                         }
                     }
+
                     stopAtPos = whereToAddStop(route.stops.get(route.stops.size() - 1), route.endPos);
                     where = route.stops.size();
+
                     if (stopAtPos != null) {
                         Position[] stopPos = stopPos(stopAtPos);
+
                         Route newRoute1 = addedStop(
                                 route, new Position[]{stopPos[0], stopPos[1]}, where
                         );
+
                         Route newRoute2 = addedStop(
                                 route, new Position[]{stopPos[2], stopPos[3]}, where
                         );
+
                         if (!newRoute1.isIn(possibleRoutes) && !newRoute1.isIn(tempPossibleRoutes)) {
                             tempPossibleRoutes.add(newRoute1);
                             finished = false;
                         }
+
                         if (!newRoute2.isIn(possibleRoutes) && !newRoute2.isIn(tempPossibleRoutes)) {
                             tempPossibleRoutes.add(newRoute2);
                             finished = false;
@@ -768,23 +702,32 @@ class Route {
                     }
                 }
             }
+
             for (Route route : tempPossibleRoutes) {
                 if (route.noCross()) finished = true;
             }
+
             possibleRoutes.addAll(tempPossibleRoutes);
         }
+
         Route shortestRoute = null;
         for (Route route : possibleRoutes) {
             if (route.noCross()) {
+
+
                 if (shortestRoute == null || route.length() < shortestRoute.length()) {
                     shortestRoute = new Route(route);
                 }
             }
         }
+
         if (shortestRoute == null) return;
+
         beACopy(shortestRoute);
+
         removeRedundantStops();
     }
+
     void calcAsRectangle() {
         ArrayList<Position> edgePoints = new ArrayList<>();
         for (DangerZone dangerZone : Main.dangerZones) {
@@ -793,11 +736,14 @@ class Route {
             edgePoints.add(new Position(dangerZone.center.x - 1, dangerZone.center.y + 1));
             edgePoints.add(new Position(dangerZone.center.x + 1, dangerZone.center.y + 1));
         }
+
         possibleRoutes = new ArrayList<>();
         possibleRoutes.add(this);
+
         boolean finished = noCross();
         while (!finished) {
             ArrayList<Route> tempPossibleRoutes = new ArrayList<>();
+
             for (Route route : possibleRoutes) {
                 for (Position position : edgePoints) {
                     Route route1 = new Route(route);
@@ -808,8 +754,10 @@ class Route {
                     }
                 }
             }
+
             if (finished) {
                 Route shortestRoute = null;
+
                 for (Route route : tempPossibleRoutes) {
                     if (route.noCross()) {
                         if (shortestRoute == null || route.length() < shortestRoute.length()) {
@@ -817,6 +765,7 @@ class Route {
                         }
                     }
                 }
+
                 if (shortestRoute != null) {
                     beACopy(shortestRoute);
                 }
@@ -845,15 +794,17 @@ class Route {
 
     static Position[] whereToAddStop(Position segmentStart, Position segmentEnd) {
 
-        for (DangerZone dangerZone : Main.map1.dangerZones) {
+        for (Map map : Main.trueMaps) {
+            for (DangerZone dangerZone : map.dangerZones) {
 
-            DistFromLine distFromLine = dangerZone.center.distFromLine(segmentStart, segmentEnd);
+                DistFromLine distFromLine = dangerZone.center.distFromLine(segmentStart, segmentEnd);
 
-            if (distFromLine.dist < Main.robotR) {
-                return new Position[]{
-                        distFromLine.closest, dangerZone.center,
-                        segmentStart, segmentEnd
-                };
+                if (distFromLine.dist < Main.robotR) {
+                    return new Position[]{
+                            distFromLine.closest, dangerZone.center,
+                            segmentStart, segmentEnd
+                    };
+                }
             }
         }
 
@@ -942,6 +893,8 @@ class Route {
     double length() {
         double length = 0;
 
+        if (startPos == null) return 1000000;
+
         if (stops.size() > 0) {
             length += Math.sqrt(
                     Math.pow(startPos.x - stops.get(0).x, 2) +
@@ -1020,95 +973,16 @@ class Route {
 
 class MyPanel extends JComponent {
     public void paint(Graphics g) {
-
         //Paint border
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, Main.screenWidth, Main.screenHeight);
         g.clearRect(50 / 4, 50 / 4, Main.screenWidth - 100 / 4, Main.screenHeight - 100 / 4);
-
-        //paint danger zones
-        g.setColor(Color.RED);
-        for (int i = 0; i < Main.map1.dangerZones.length; i++) {
-            if (Main.map1.dangerZones[i] == null) {
-                System.out.println(i + " null");
-                continue;
-            }
-            g.fillOval(
-                    (int) (Main.map1.dangerZones[i].center.x * 115 / 4 + 50 / 4 - Main.map1.dangerZones[i].r / 8),
-                    (int) (Main.map1.dangerZones[i].center.y * 115 / 4 + 50 / 4 - Main.map1.dangerZones[i].r / 8),
-                    Main.map1.dangerZones[i].r / 4, Main.map1.dangerZones[i].r / 4
-            );
-        }
 
         //Paint grid
         g.setColor(Color.BLACK);
         for (int i = 1; i < 20; i++) {
             g.drawLine(50 / 4 + i * 115 / 4, 0, 50 / 4 + i * 115 / 4, Main.screenHeight);
             g.drawLine(0, 50 / 4 + i * 115 / 4, Main.screenWidth, 50 / 4 + i * 115 / 4);
-        }
-
-        //paint boxes
-        for (int i = 0; i < Main.map1.boxes.length; i++) {
-            if (!Main.allColors[Main.map1.boxes[i].color].known) {
-                g.setColor(Color.BLACK);
-            } else switch (Main.map1.boxes[i].color) {
-                case Colors.BLUE:
-                    g.setColor(Color.BLUE);
-                    break;
-
-                case Colors.YELLOW:
-                    g.setColor(Color.YELLOW);
-                    break;
-
-                case Colors.RED:
-                    g.setColor(Color.RED);
-                    break;
-
-                case Colors.GREEN:
-                    g.setColor(Color.GREEN);
-                    break;
-
-                case Colors.ORANGE:
-                    g.setColor(Color.ORANGE);
-                    break;
-            }
-            g.fillRect(
-                    (int) ((Main.map1.boxes[i].pos.x - 1) * 115 / 4 + 50 / 4),
-                    (int) ((Main.map1.boxes[i].pos.y - 1) * 115 / 4 + 50 / 4),
-                    115 * 2 / 4, 115 * 2 / 4
-            );
-        }
-
-        //paint top boxes
-        for (int i = 0; i < Main.map1.boxes.length; i++) {
-            if (!Main.allColors[Main.map1.boxes[i].color].known) {
-                g.setColor(Color.BLACK);
-            } else switch (Main.map1.boxes[i].colorOnTop) {
-                case Colors.BLUE:
-                    g.setColor(Color.BLUE);
-                    break;
-
-                case Colors.YELLOW:
-                    g.setColor(Color.YELLOW);
-                    break;
-
-                case Colors.RED:
-                    g.setColor(Color.RED);
-                    break;
-
-                case Colors.GREEN:
-                    g.setColor(Color.GREEN);
-                    break;
-
-                case Colors.ORANGE:
-                    g.setColor(Color.ORANGE);
-                    break;
-            }
-            g.fillRect(
-                    (int) (Main.map1.boxes[i].pos.x * 115 / 4 + 50 / 4 - 5),
-                    (int) (Main.map1.boxes[i].pos.y * 115 / 4 + 50 / 4 - 5),
-                    10, 10
-            );
         }
 
         //paint parking lot
@@ -1153,16 +1027,6 @@ class MyPanel extends JComponent {
                 (int) (endY * 115 / 4 + 50 / 4)
         );
 
-        //paint pick up positions
-        g.setColor(Color.BLUE);
-        for (int i = 0; i < Main.map1.pickUpPositions.length; i++) {
-            g.fillOval(
-                    (int) (Main.map1.pickUpPositions[i].x * 115 / 4 - 5 + 50 / 4),
-                    (int) (Main.map1.pickUpPositions[i].y * 115 / 4 - 5 + 50 / 4),
-                    10, 10
-            );
-        }
-
         //paint start position
         g.setColor(Color.GREEN);
         g.fillOval(
@@ -1202,6 +1066,96 @@ class MyPanel extends JComponent {
                     (int) (Main.nextRoute.endPos.y * 115 / 4 + 50 / 4)
             );
         }
+
+        for (Map map : Main.trueMaps) {
+            //paint danger zones
+            g.setColor(Color.RED);
+            for (int i = 0; i < map.dangerZones.length; i++) {
+                if (map.dangerZones[i] == null) {
+                    System.out.println(i + " null");
+                    continue;
+                }
+                g.fillOval(
+                        (int) (map.dangerZones[i].center.x * 115 / 4 + 50 / 4 - map.dangerZones[i].r / 8),
+                        (int) (map.dangerZones[i].center.y * 115 / 4 + 50 / 4 - map.dangerZones[i].r / 8),
+                        map.dangerZones[i].r / 4, map.dangerZones[i].r / 4
+                );
+            }
+
+            //paint boxes
+            for (int i = 0; i < map.boxes.length; i++) {
+                if (!Main.allColors[map.boxes[i].color].known) {
+                    g.setColor(Color.BLACK);
+                } else switch (map.boxes[i].color) {
+                    case Colors.BLUE:
+                        g.setColor(Color.BLUE);
+                        break;
+
+                    case Colors.YELLOW:
+                        g.setColor(Color.YELLOW);
+                        break;
+
+                    case Colors.RED:
+                        g.setColor(Color.RED);
+                        break;
+
+                    case Colors.GREEN:
+                        g.setColor(Color.GREEN);
+                        break;
+
+                    case Colors.ORANGE:
+                        g.setColor(Color.ORANGE);
+                        break;
+                }
+                g.fillRect(
+                        (int) ((map.boxes[i].pos.x - 1) * 115 / 4 + 50 / 4),
+                        (int) ((map.boxes[i].pos.y - 1) * 115 / 4 + 50 / 4),
+                        115 * 2 / 4, 115 * 2 / 4
+                );
+            }
+
+            //paint top boxes
+            for (int i = 0; i < map.boxes.length; i++) {
+                if (!Main.allColors[map.boxes[i].color].known) {
+                    g.setColor(Color.BLACK);
+                } else switch (map.boxes[i].colorOnTop) {
+                    case Colors.BLUE:
+                        g.setColor(Color.BLUE);
+                        break;
+
+                    case Colors.YELLOW:
+                        g.setColor(Color.YELLOW);
+                        break;
+
+                    case Colors.RED:
+                        g.setColor(Color.RED);
+                        break;
+
+                    case Colors.GREEN:
+                        g.setColor(Color.GREEN);
+                        break;
+
+                    case Colors.ORANGE:
+                        g.setColor(Color.ORANGE);
+                        break;
+                }
+                g.fillRect(
+                        (int) (map.boxes[i].pos.x * 115 / 4 + 50 / 4 - 5),
+                        (int) (map.boxes[i].pos.y * 115 / 4 + 50 / 4 - 5),
+                        10, 10
+                );
+            }
+
+            //paint pick up positions
+            g.setColor(Color.BLUE);
+            for (int i = 0; i < map.pickUpPositions.length; i++) {
+                g.fillOval(
+                        (int) (map.pickUpPositions[i].x * 115 / 4 - 5 + 50 / 4),
+                        (int) (map.pickUpPositions[i].y * 115 / 4 - 5 + 50 / 4),
+                        10, 10
+                );
+            }
+        }
     }
 
 }
@@ -1225,16 +1179,16 @@ class Colors {
     }
 }
 
-class Map{
+class Map {
     int id;
     String input;
     Box[] boxes = new Box[5];
     DangerZone[] dangerZones = new DangerZone[5 * 5 + 4 + 3];
     Position[] pickUpPositions = new Position[5];
     double[] pickUpDirections = new double[5];
-    boolean fake = true;
+    //TODO boolean fake = true;
 
-    Map(String input, int id){
+    Map(String input, int id) {
         this.id = id;
         this.input = input;
 
