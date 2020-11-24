@@ -118,37 +118,31 @@ public class Chassis {
         double a = Math.abs(moveUnits) / 2; // Kétszer csináljuk meg a fordulgatást, egyszer hátra, majd mégegyszer előre.
         double alfa = Math.acos((D_IN_UNITS - a) / D_IN_UNITS);
         System.out.println("alfa: " + alfa);
-        double i = D_IN_UNITS * alfa;
+        float i = (float) (D_IN_UNITS * alfa);
         System.out.println("I=" + i);
-        if (moveUnits < 0) { // move left
-            goRight((float) -i, speed, true);
-            goLeft((float) -i, speed, true);
-            goRight((float) i, speed, true);
-            goLeft((float) i, speed, true);
-        } else { // move right
-            goLeft((float) -i, speed, true);
-            goRight((float) -i, speed, true);
-            goLeft((float) i, speed, true);
-            goRight((float) i, speed, true);
+        if (moveUnits < 0) {
+            // move left
+            goRight(-i, speed, true);
+            goLeft(-i, speed, true);
+            goRight(i, speed, true);
+            goLeft(i, speed, true);
+        } else {
+            // move right
+            goLeft(-i, speed, true);
+            goRight(-i, speed, true);
+            goLeft(i, speed, true);
+            goRight(i, speed, true);
         }
-    }
-
-    void positionSideways(BufferedImage img, int speed) {
-        int targetPos = img.getWidth() / 2;
-        int errorPx = ImageProcessing.cubePosOnPicture(img) - targetPos;
-        System.out.println("Error: " + errorPx);
-
-        moveSideways(ImageProcessing.pxToUnit(errorPx), speed);
     }
 
     void positionSideways(int speed) {
         try {
-            var f = piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
-            var img = ImageIO.read(f);
-            positionSideways(img, speed);
+            moveSideways(
+                    ImageProcessing.cubePosErrorUnit(),
+                    speed
+            );
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
-
 }

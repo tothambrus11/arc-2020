@@ -58,20 +58,16 @@ public class Main {
         chassis.go(-0.9f, 100, true);
         prizm.setLEDState(true);
         Thread.sleep(500);
-        File f;
-        for (int i = 0; i < 1; i++){
-            f = piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
-            System.out.println("POS: " + ImageProcessing.cubePosOnPicture(ImageIO.read(f)));
-            chassis.positionSideways(ImageIO.read(f), 80);
+
+        double unitError = ImageProcessing.cubePosErrorUnit();
+        double mmError = ImageProcessing.unitToMM(unitError);
+
+        if (mmError >= 10) {
+            chassis.moveSideways(unitError, 40);
+            arm.posOffset = arm.mmToArmOffset(ImageProcessing.unitToMM(ImageProcessing.cubePosErrorUnit()));
+        } else {
+            arm.posOffset = arm.mmToArmOffset(mmError);
         }
-
-        f = piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
-        var img = ImageIO.read(f);
-        int pos = ImageProcessing.cubePosOnPicture(img);
-        int targetPos = img.getWidth() / 2;
-        int errorPx = ImageProcessing.cubePosOnPicture(img) - targetPos;
-
-        System.out.println("ERROR 2: " + ImageProcessing.pxToUnit(errorPx)*115 + "mm");
 
         arm.catchCubeRight();
 
