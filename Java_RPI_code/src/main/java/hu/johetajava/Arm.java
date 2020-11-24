@@ -7,6 +7,7 @@ public class Arm {
     public static final byte TOPIC_ARM_RIGHT = 11;
     public static final byte TOPIC_ARM_UP = 12;
     public static final byte TOPIC_ARM_POS = 13;
+    public static final double ARM_EC_PER_MM = 1100d / 47; // 47mm volt 1100 encoder count
 
     Arm(Prizm prizm) {
         this.prizm = prizm;
@@ -30,17 +31,17 @@ public class Arm {
         prizm.sendMessage(TOPIC_ARM_UP, new byte[]{(byte) angle});
     }
 
-    void up(boolean wait){
+    void up(boolean wait) {
         armUp(70);
-        if(wait) sleep(500);
+        if (wait) sleep(500);
     }
 
-    void down(boolean wait){
+    void down(boolean wait) {
         armUp(130);
-        if(wait) sleep(500);
+        if (wait) sleep(500);
     }
 
-    void catchCubeRight(){
+    void catchCubeRight() {
         Main.chassis.go(-0.06f, 20, true);
         closeLeft(false);
         setPos(-1100f, true);
@@ -64,9 +65,13 @@ public class Arm {
     void setPos(Float pos, boolean wait) {
         prizm.sendMessage(TOPIC_ARM_POS, pos.toString().getBytes());
         //prizm.send( (byte) (wait ? 1 : 0));
-        if(wait){
+        if (wait) {
             prizm.waitForOk();
             System.out.println("OK received");
         }
+    }
+
+    int mmToArmOffset(double mmValue) {
+        return (int) (mmValue * ARM_EC_PER_MM);
     }
 }

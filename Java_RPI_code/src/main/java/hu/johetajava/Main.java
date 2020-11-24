@@ -1,8 +1,6 @@
 package hu.johetajava;
 
 import com.hopding.jrpicam.RPiCamera;
-import com.hopding.jrpicam.enums.AWB;
-import com.hopding.jrpicam.enums.Encoding;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -49,35 +47,57 @@ public class Main {
         chassis = new Chassis(prizm);
         arm = new Arm(prizm);
         int elt = Integer.parseInt(args[1]);
-        if(elt != 0){
+        if (elt != 0) {
             arm.setPos((float) elt, true);
             return;
         }
 
-        chassis.turnRotations(2f, 40, true);
-
+        //chassis.turnRotations((float) Float.parseFloat(args[2]), 110, true);
 
         chassis.goToEdgePrecise();
+        chassis.go(-0.9f, 100, true);
+        prizm.setLEDState(true);
+        Thread.sleep(500);
+        File f;
+        for (int i = 0; i < 1; i++){
+            f = piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
+            System.out.println("POS: " + ImageProcessing.cubePosOnPicture(ImageIO.read(f)));
+            chassis.positionSideways(ImageIO.read(f), 80);
+        }
+
+        f = piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
+        var img = ImageIO.read(f);
+        int pos = ImageProcessing.cubePosOnPicture(img);
+        int targetPos = img.getWidth() / 2;
+        int errorPx = ImageProcessing.cubePosOnPicture(img) - targetPos;
+
+        System.out.println("ERROR 2: " + ImageProcessing.pxToUnit(errorPx)*115 + "mm");
 
         arm.catchCubeRight();
 
         chassis.go(-1f, 40, true);
 
         Thread.sleep(500);
-        chassis.turnRotations(-0.5f, 40, true);
+        chassis.turnRotations(-0.5f * Float.parseFloat(args[2]), 100, true);
         System.out.println("TR finished");
         Thread.sleep(500);
 
-        chassis.go(2f,80, true);
+        chassis.go(2f, 80, true);
+        prizm.setLEDState(true);
         chassis.goToEdgePrecise();
         System.out.println("goToEdge finished");
-        chassis.go(-0.06f, 20, true);
+        piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
+        prizm.setLEDState(false);
 
         arm.setPos(1100f, true);
+        chassis.go(-0.06f, 20, true);
         arm.down(true);
-        chassis.goToEdge(30);
+        Main.chassis.goToEdge(20);
+        Main.chassis.go(0.06f, 20, true);
+
         arm.closeLeft(true);
         arm.setPos(-1250f, true);
+        Main.chassis.go(-0.06f, 20, true);
         arm.up(true);
 
         arm.setPos(0f, true);

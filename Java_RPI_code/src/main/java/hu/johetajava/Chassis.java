@@ -1,5 +1,12 @@
 package hu.johetajava;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import static hu.johetajava.Main.piCamera;
+
 public class Chassis {
     Prizm prizm;
 
@@ -10,6 +17,12 @@ public class Chassis {
     public static final byte TOPIC_STOP_LEFT = 7;
     public static final byte TOPIC_STOP_RIGHT = 8;
     public static final byte TOPIC_WAIT_FOR_ANY_BUTTON_PRESSED = 9;
+    public static final byte TOPIC_GO_UNITS_LEFT = 14;
+    public static final byte TOPIC_GO_UNITS_RIGHT = 15;
+
+    public static final int UNIT_IN_MM = 115;
+    public static final double D_MM = 266; // Kikíséretezni, mi a pont jó. Ez elvileg a két kerék távolsága
+    public static final double D_IN_UNITS = D_MM / UNIT_IN_MM;
 
 
     Chassis(Prizm prizm) {
@@ -56,6 +69,22 @@ public class Chassis {
         }
     }
 
+    void goLeft(Float units, int speed, boolean wait) {
+        prizm.sendMessage(TOPIC_GO_UNITS_LEFT, units.toString().getBytes());
+        prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 1 : 0));
+        if (wait) {
+            prizm.waitForOk();
+        }
+    }
+
+    void goRight(Float units, int speed, boolean wait) {
+        prizm.sendMessage(TOPIC_GO_UNITS_RIGHT, units.toString().getBytes());
+        prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 1 : 0));
+        if (wait) {
+            prizm.waitForOk();
+        }
+    }
+
     void goToEdge(int speed) {
         setSpeedForward(speed);
 
@@ -75,11 +104,51 @@ public class Chassis {
         System.out.println("Edge reached.");
     }
 
-    void goToEdgePrecise(){
+    void goToEdgePrecise() {
+        goToEdge(40);
+        go(-0.1f, 40, true);
         goToEdge(40);
         go(-0.1f, 20, true);
         goToEdge(20);
     }
 
+    void moveSideways(double moveUnits, int speed) {
+        System.out.println("MoveUnits: " + moveUnits);
+        System.out.println("MoveMMs: " + ImageProcessing.unitToMM(moveUnits));
+        double a = Math.abs(moveUnits) / 2; // Kétszer csináljuk meg a fordulgatást, egyszer hátra, majd mégegyszer előre.
+        double alfa = Math.acos((D_IN_UNITS - a) / D_IN_UNITS);
+        System.out.println("alfa: " + alfa);
+        double i = D_IN_UNITS * alfa;
+        System.out.println("I=" + i);
+        if (moveUnits < 0) { // move left
+            goRight((float) -i, speed, true);
+            goLeft((float) -i, speed, true);
+            goRight((float) i, speed, true);
+            goLeft((float) i, speed, true);
+        } else { // move right
+            goLeft((float) -i, speed, true);
+            goRight((float) -i, speed, true);
+            goLeft((float) i, speed, true);
+            goRight((float) i, speed, true);
+        }
+    }
+
+    void positionSideways(BufferedImage img, int speed) {
+        int targetPos = img.getWidth() / 2;
+        int errorPx = ImageProcessing.cubePosOnPicture(img) - targetPos;
+        System.out.println("Error: " + errorPx);
+
+        moveSideways(ImageProcessing.pxToUnit(errorPx), speed);
+    }
+
+    void positionSideways(int speed) {
+        try {
+            var f = piCamera.takeStill("pic.jpg", 3280 / 3, 2464 / 3);
+            var img = ImageIO.read(f);
+            positionSideways(img, speed);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
