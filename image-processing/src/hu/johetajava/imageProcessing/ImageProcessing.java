@@ -1,3 +1,5 @@
+package hu.johetajava.imageProcessing;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -31,20 +33,20 @@ public class ImageProcessing {
         System.out.println(" ==> Units to move: " + unitsToMove);
     }
 
-    static double pxToUnit(double px) {
+    public static double pxToUnit(double px) {
         return px * UNIT_PER_PIXEL;
     }
 
-    static double pxToMM(int px) {
+    public static double pxToMM(int px) {
         return px * CUBE_IN_MM / (double) CUBE_IN_PX;
     }
 
-    static double unitToMM(double unit) {
+    public static double unitToMM(double unit) {
         return UNIT_IN_MM * unit;
     }
 
 
-    static CubePosInfo cubeInfoOnPicture(BufferedImage img) throws NoCubeFoundException {
+    public static CubePosInfo cubeInfoOnPicture(BufferedImage img) throws NoCubeFoundException {
         int atY = img.getHeight() / 2;
 
         HashMap<MyColor, ColorInfo> colorInfos = new HashMap<>();
@@ -108,16 +110,15 @@ public class ImageProcessing {
         return MyColor.NONE;
     }
 
-
-    static double cubePosErrorPx(BufferedImage img) throws NoCubeFoundException {
+    public static double cubePosErrorPx(BufferedImage img) throws NoCubeFoundException {
         return cubePosOnPicturePx(img) - img.getWidth() / 2d;
     }
 
-    private static double cubePosOnPicturePx(BufferedImage img) throws NoCubeFoundException {
+    public static double cubePosOnPicturePx(BufferedImage img) throws NoCubeFoundException {
         return cubeInfoOnPicture(img).positionPx;
     }
 
-    static double cubePosErrorUnit(BufferedImage img) throws NoCubeFoundException {
+    public static double cubePosErrorUnit(BufferedImage img) throws NoCubeFoundException {
         return pxToUnit(cubePosErrorPx(img));
     }
 
@@ -127,31 +128,4 @@ public class ImageProcessing {
     }
 }
 
-
-class ColorInfo {
-    int pixelCount = 0;
-    int pixelSum = 0;
-}
-
-class CubePosInfo {
-    double positionPx;
-    MyColor color;
-
-    public CubePosInfo(double positionPx, MyColor color) {
-        this.positionPx = positionPx;
-        this.color = color;
-    }
-}
-
-enum MyColor {
-    RED,
-    YELLOW,
-    ORANGE,
-    BLUE,
-    GREEN,
-    NONE
-}
-
-class NoCubeFoundException extends Throwable {
-}
 

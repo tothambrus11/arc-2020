@@ -3,16 +3,12 @@ package hu.johetajava;
 import hu.johetajava.imageProcessing.ImageProcessing;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import static hu.johetajava.Main.*;
-import static java.lang.Thread.sleep;
 
 public class Chassis {
-    Prizm prizm;
+    hu.johetajava.Prizm prizm;
 
     public static final byte TOPIC_STOP = 0;
     public static final byte TOPIC_SET_SPEED_FORWARD = 1;
@@ -28,8 +24,7 @@ public class Chassis {
     public static final double D_MM = 266; // Kikíséretezni, mi a pont jó. Ez elvileg a két kerék távolsága
     public static final double D_IN_UNITS = D_MM / UNIT_IN_MM;
 
-
-    Chassis(Prizm prizm) {
+    Chassis(hu.johetajava.Prizm prizm) {
         this.prizm = prizm;
     }
 

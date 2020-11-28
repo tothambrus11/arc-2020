@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d8130b49-b510-49dc-91c1-7eaa5ad3d58c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code/.idea/artifacts/MainArtifact.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/Java_RPI_code_c1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/core-3.3.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/core-3.3.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/core-3.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/core-3.4.1-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/core-3.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jSerialComm-2.6.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jai-imageio-core-1.3.1-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jai-imageio-core-1.3.1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jai-imageio-core-1.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jai-imageio-core-1.4.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jai-imageio-core-1.4.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/javase-3.3.0-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/javase-3.3.0-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/javase-3.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/javase-3.4.1-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/javase-3.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jcommander-1.48-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jcommander-1.48-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jcommander-1.48.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jcommander-1.78-javadoc.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jcommander-1.78.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jrpicam-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/RPiCamera.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/enums/AWB.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/enums/DRC.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/enums/Encoding.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/enums/Exposure.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/enums/ImageEffect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/enums/MeteringMode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/DemoView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/DemoView$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/DemoView$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/DemoView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/ShootBufferedStill.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/ShootStill.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/examples/ShootTimelapse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/com/hopding/jrpicam/exceptions/FailedToRunRaspistillException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/hu/johetajava/Arm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/hu/johetajava/Chassis.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/hu/johetajava/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/hu/johetajava/Prizm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/hu/johetajava/QRCodeScanner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/production/Java_RPI_code_c1/hu/johetajava/RobotCamera.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Prizm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/QRCodeScanner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/RobotCamera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/RPiCamera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/enums/AWB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/enums/DRC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/enums/Encoding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/enums/Exposure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/enums/ImageEffect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/enums/MeteringMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/DemoView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/ShootBufferedStill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/ShootStill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/ShootTimelapse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/exceptions/FailedToRunRaspistillException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/CubePosInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/MyColor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/NoCubeFoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ColorInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/CubePosInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/MyColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/NoCubeFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/.idea/libraries/image_processing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/.idea/libraries/image_processing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/Arm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/Chassis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/ImageProcessing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/MPU6050Raw.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/RobotCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/src/main/java/hu/johetajava/RobotCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/target/Java_RPI_code-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/Arm.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/Arm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/Chassis.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/Chassis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/MPU6050Raw.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/target/classes/hu/johetajava/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/image-processing/ImageProcessing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\User\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\202.7660.26\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kv1aZctkrqVX7KMAfQ4yo8IbHh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.35747126" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\image-processing" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ImageProcessing" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hu.johetajava.imageProcessing.ImageProcessing" />
+      <module name="image-processing" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8130b49-b510-49dc-91c1-7eaa5ad3d58c" name="Default Changelist" comment="" />
+      <created>1606566315868</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606566315868</updated>
+      <workItem from="1606566319048" duration="2193000" />
+    </task>
+    <task id="LOCAL-00001" summary="ImageProcessing jó">
+      <created>1606566751078</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606566751078</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="ImageProcessing jó" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImageProcessing jó" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606566339763">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606566339763" />
+    <state x="29" y="0" key="CommitChangelistDialog2" timestamp="1606566748999">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="29" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606566748999" />
+    <state width="1322" height="179" key="GridCell.Tab.0.bottom" timestamp="1606567583057">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606567583057" />
+    <state width="1322" height="179" key="GridCell.Tab.0.center" timestamp="1606567583057">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606567583057" />
+    <state width="1322" height="179" key="GridCell.Tab.0.left" timestamp="1606567583057">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606567583057" />
+    <state width="1322" height="179" key="GridCell.Tab.0.right" timestamp="1606567583057">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606567583057" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1606572948876">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606572948876" />
+  </component>
+</project>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="image-processing">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../image-processing/out/production/image-processing" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
