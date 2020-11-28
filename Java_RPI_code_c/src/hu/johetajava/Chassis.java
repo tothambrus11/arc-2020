@@ -45,6 +45,11 @@ public class Chassis {
      * @param wait      Wait for motors
      */
     void turnRotations(Float rotations, int speed, boolean wait) {
+        if(rotations > 0){
+            play("balra");
+        } else if(rotations < 0){
+            play("jobbra");
+        }
         prizm.sendMessage(TOPIC_TURN_ROTATIONS, rotations.toString().getBytes());
         prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 1 : 0));
         if (wait) {
@@ -152,6 +157,9 @@ public class Chassis {
 
             mmError = ImageProcessing.unitToMM(info.errorUnits);
         }
+
+        System.out.println("CUBE COLOR: " + info.cubeColor);
+        System.out.println("BOX COLOR: " + info.boxColor);
 
         System.out.println("MM ERROR: " + mmError);
         arm.posOffset = arm.mmToArmOffset(mmError);

@@ -21,13 +21,9 @@ public class ImageProcessing {
     public static final double D_IN_UNITS = D_MM / UNIT_IN_MM;
 
     public static void main(String[] args) throws IOException, NoCubeFoundException {
-        File f = new File("blue.jpg");
+        File f = new File("bluegree.jpg");
         var img = ImageIO.read(f);
         CubePosInfo info = cubeInfoOnPicture(img);
-
-        double unitsToMove = info.errorUnits;
-
-        System.out.println(" ==> Units to move: " + unitsToMove);
     }
 
     public static double pxToUnit(double px) {
@@ -44,7 +40,9 @@ public class ImageProcessing {
 
 
     public static CubePosInfo cubeInfoOnPicture(BufferedImage img) throws NoCubeFoundException {
+        System.out.println("\n  CUBE");
         var cubeEntry = getColorBestEntry(img.getHeight() / 2, img);
+        System.out.println("\n  BOX");
         var boxEntry = getColorBestEntry(img.getHeight() - 1, img);
 
         double posPx = (double) cubeEntry.getValue().pixelSum / (double) cubeEntry.getValue().pixelCount;
@@ -85,7 +83,9 @@ public class ImageProcessing {
             if (bestEntry == null || entry.getValue().pixelCount > bestEntry.getValue().pixelCount) {
                 bestEntry = entry;
             }
-            System.out.println(entry.getKey() + " -> " + entry.getValue().pixelCount);
+            if(entry.getValue().pixelCount>0){
+                System.out.println(entry.getKey() + " -> " + entry.getValue().pixelCount);
+            }
         }
 
         if (bestEntry == null) {
@@ -109,7 +109,7 @@ public class ImageProcessing {
                 return MyColor.ORANGE;
             } else if (hue >= 45 && hue < 80 && saturation > 0.5 && brightness > 0.5) {
                 return MyColor.YELLOW;
-            } else if (hue >= 80 && hue < 150 && saturation >= 0.2) {
+            } else if (hue >= 80 && hue < 185 && saturation >= 0.2) {
                 return MyColor.GREEN;
             } else if (hue >= 210 && hue < 270 && saturation > 0.25 && brightness > 0.32) {
                 return MyColor.BLUE;

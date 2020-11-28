@@ -5,11 +5,13 @@ import hu.johetajava.imageProcessing.CubePosInfo;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
 import hu.johetajava.pathfinding.Main_pathfinding;
 import hu.johetajava.pathfinding.RobotInterface;
+import javazoom.jl.player.Player;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -109,27 +111,16 @@ public class Main {
 
         chassis.go(-1f, 40, true);
 
-        Thread.sleep(500);
+        //Thread.sleep(500);
         chassis.turnRotations(-0.5f, 100, true);
         System.out.println("TR finished");
-        Thread.sleep(500);
+        //Thread.sleep(500);
 
         chassis.go(2f, 200, true);
         chassis.positionSidewaysFullProcedure();
         chassis.goToEdgePrecise();
 
-        arm.setPos(1100f, true);
-        chassis.go(-0.06f, 20, true);
-        arm.down(true);
-        Main.chassis.goToEdge(20);
-        Main.chassis.go(0.06f, 20, true);
-
-        arm.closeLeft(true);
-        arm.setPos(-1250f, true);
-        Main.chassis.go(-0.06f, 20, true);
-        arm.up(true);
-
-        arm.reset();
+        arm.swapCubesFromRight();
 
         /*arm.setPos(1100f, true);
         arm.down(true);
@@ -157,6 +148,19 @@ public class Main {
         arm.up(true);
         arm.setPos(0f, true);
 */
+    }
+
+    static void play(String fileName){
+        new Thread(()->{
+            try{
+                FileInputStream fis = new FileInputStream(fileName + ".mp3");
+                Player playMP3 = new Player(fis);
+
+                playMP3.play();
+            }  catch(Exception e){
+                System.out.println(e);
+            }
+        }).start();
     }
 
     static void onStart() throws InterruptedException, IOException {

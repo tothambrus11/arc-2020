@@ -1,5 +1,7 @@
 package hu.johetajava;
 
+import static hu.johetajava.Main.chassis;
+
 public class Arm {
     Prizm prizm;
 
@@ -34,6 +36,7 @@ public class Arm {
     }
 
     void up(boolean wait) {
+        Main.play("horukk");
         armUp(70);
         if (wait) sleep(500);
     }
@@ -44,30 +47,30 @@ public class Arm {
     }
 
     void catchCubeRight() {
-        Main.chassis.go(-0.06f, 20, true);
+        chassis.go(-0.06f, 20, true);
         closeLeft(false);
         setPos(-1100f, true);
         down(true);
-        Main.chassis.goToEdge(20);
-        Main.chassis.go(0.06f, 20, true);
+        chassis.goToEdge(20);
+        chassis.go(0.06f, 20, true);
 
         closeRight(true);
         up(true);
-        reset();
+        reset(false);
     }
 
     void catchCubeLeft(){
-        Main.chassis.go(-0.06f, 20, true);
+        chassis.go(-0.06f, 20, true);
         closeLeft(false);
         setPos(1100f, true);
         down(true);
-        Main.chassis.goToEdge(20);
-        Main.chassis.go(0.06f, 20, true);
+        chassis.goToEdge(20);
+        chassis.go(0.06f, 20, true);
 
         closeLeft(true);
         up(true);
 
-        reset();
+        reset(false);
     }
 
     private void sleep(int millis) {
@@ -82,9 +85,10 @@ public class Arm {
         pos += posOffset;
 
         prizm.sendMessage(TOPIC_ARM_POS, pos.toString().getBytes());
-        //prizm.send( (byte) (wait ? 1 : 0));
+        prizm.send((byte) ' ', (byte) (wait ? 1 : 0));
         if (wait) {
-            prizm.waitForOk();
+            System.out.println("waiting for ok...");
+            prizm.waitForOk(50);
             System.out.println("OK received");
         }
     }
@@ -94,7 +98,26 @@ public class Arm {
     }
 
     public void reset() {
+        reset(true);
+    }
+
+    public void reset(boolean wait){
         posOffset = 0;
-        setPos(0f, true);
+        setPos(0f, wait);
+    }
+
+    public void swapCubesFromRight() {
+        chassis.go(-0.06f, 20, false);
+        setPos(1100f, true);
+        down(true);
+        chassis.goToEdge(20);
+        chassis.go(0.06f, 20, true);
+
+        closeLeft(true);
+        setPos(-1250f, true);
+        chassis.go(-0.06f, 20, true);
+        up(true);
+
+        reset(false);
     }
 }

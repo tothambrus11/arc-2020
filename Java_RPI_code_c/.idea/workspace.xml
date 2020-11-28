@@ -9,25 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64d2dfb5-7c9c-4f85-b1c5-4a019d9729e2" name="Default Changelist" comment="">
+    <list default="true" id="64d2dfb5-7c9c-4f85-b1c5-4a019d9729e2" name="Default Changelist" comment="implement RobotInterface">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jl1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jl1.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/Java_RPI_code_c1_jar/horukk.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/balra.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/indulas.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/jobbra.mp3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/bluegree.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_RPI_code_c1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java_RPI_code_c1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Arm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Chassis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Prizm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Prizm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../image-processing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Colors.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Colors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DangerZone.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DangerZone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DistFromLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DistFromLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Main_pathfinding.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Main_pathfinding.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/MyPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Parking.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Parking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Position.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Robot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Robot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/RobotInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/RobotInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/src/hu/johetajava/pathfinding/Main_pathfinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/src/hu/johetajava/pathfinding/Main_pathfinding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,15 +60,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/Java_RPI_code_c1_jar" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.254023" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\sounds" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\out\artifacts\Java_RPI_code_c1_jar" />
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\sounds" />
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c" />
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606570029498</updated>
       <workItem from="1606570030777" duration="417000" />
-      <workItem from="1606570546738" duration="7992000" />
+      <workItem from="1606570546738" duration="18111000" />
     </task>
     <task id="LOCAL-00001" summary="Jar buildelések rendben">
       <created>1606573339060</created>
@@ -148,6 +157,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606572521215" />
+    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606587738339">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606587738339" />
     <state x="404" y="154" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606582439010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -164,46 +177,50 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="404" y="119" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606582370451" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606576502083">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606586000234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606576502083" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606586000234" />
     <state x="480" y="239" key="DetectedRootsChooserDialog" timestamp="1606570221762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="480" y="239" key="DetectedRootsChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1606570221762" />
-    <state x="463" y="73" key="FileChooserDialogImpl" timestamp="1606573361160">
+    <state x="463" y="73" key="FileChooserDialogImpl" timestamp="1606588187995">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="73" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606573361160" />
-    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1606572871365">
+    <state x="463" y="73" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606588187995" />
+    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1606596670349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606572871365" />
-    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1606572871365">
+    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606596670349" />
+    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1606596670349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606572871365" />
-    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1606572871365">
+    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606596670349" />
+    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1606596670348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606572871365" />
-    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1606572871365">
+    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606596670348" />
+    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1606596670349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606572871365" />
+    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606596670349" />
     <state x="306" y="68" width="1060" height="591" key="NewModule_or_Project.wizard" timestamp="1606570177005">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="306" y="68" width="1060" height="591" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1606570177005" />
-    <state x="154" y="0" key="SettingsEditor" timestamp="1606582537052">
+    <state x="154" y="0" key="SettingsEditor" timestamp="1606588261225">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="154" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606582537052" />
+    <state x="154" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606588261225" />
     <state x="264" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606576505933">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="264" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606576505933" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1606597229694">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606597229694" />
     <state x="538" y="85" key="ftp.server.browser" timestamp="1606571376905">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -212,9 +229,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="272" y="47" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1606570077082" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606571787903">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606592788243">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606571787903" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606592788243" />
   </component>
 </project>

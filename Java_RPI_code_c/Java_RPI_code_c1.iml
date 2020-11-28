@@ -12,5 +12,6 @@
     <orderEntry type="library" name="jSerialComm-2.6.2" level="project" />
     <orderEntry type="library" name="image-processing" level="project" />
     <orderEntry type="library" name="utvonaltervezo" level="project" />
+    <orderEntry type="library" name="jl1.0.1" level="project" />
   </component>
 </module>

@@ -59,6 +59,15 @@ public class Prizm {
         waitForOk();
     }
 
+    public void waitForOk(int checkTime) {
+        if (readByte() == OK_RESPONSE) return;
+        try {
+            Thread.sleep(checkTime);
+        } catch (InterruptedException ignored) {
+        }
+        waitForOk();
+    }
+
     public void setLEDState(boolean on) {
         send(TOPIC_LED_STATE, (byte) (on ? 100 : 0));
         System.out.println("LED " + (on ? "on" : "off"));
