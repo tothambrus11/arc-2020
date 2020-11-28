@@ -122,6 +122,17 @@ public class Main {
         robot.move(nextRoute);
     }
 
+
+    public static void run(RobotInterface robotInterface){
+        boolean isRunning = true;
+        while(isRunning){
+            robotInterface.go(4);
+            robotInterface.turn(0.25); // 90 fok balra
+            robotInterface.turn(-0.25); // 90 fok jobbra
+            robotInterface.positionToCube(); // Mielőtt ezt lefuttatjuk, a kocka szélétől kb 2 unitra kell legyen a robot. Ez berakja a kockacserélgetéshez tökéletes pozícióba.
+        }
+    }
+
     private static void createFrame() {
         frame = new JFrame("Game");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

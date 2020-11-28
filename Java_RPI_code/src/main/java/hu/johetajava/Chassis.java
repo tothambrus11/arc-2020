@@ -5,7 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static hu.johetajava.Main.piCamera;
+import static hu.johetajava.Main.*;
+import static java.lang.Thread.sleep;
 
 public class Chassis {
     Prizm prizm;
@@ -141,8 +142,27 @@ public class Chassis {
                     ImageProcessing.cubePosErrorUnit(),
                     speed
             );
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException | InterruptedException | NoCubeFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void positionSidewaysFullProcedure() throws InterruptedException, IOException, NoCubeFoundException {
+        go(-0.9f, 100, true);
+
+        double unitError = ImageProcessing.cubePosErrorUnit();
+        double mmError = ImageProcessing.unitToMM(unitError);
+
+        while (Math.abs(mmError) >= 10) {
+            System.out.println("Move sideways");
+            chassis.moveSideways(unitError, 40);
+
+            unitError = ImageProcessing.cubePosErrorUnit();
+            mmError = ImageProcessing.unitToMM(unitError);
+        }
+        System.out.println("MM ERROR: " + mmError);
+        arm.posOffset = arm.mmToArmOffset(mmError);
+        System.out.println("POS OFFSET: " + arm.posOffset);
+
     }
 }
