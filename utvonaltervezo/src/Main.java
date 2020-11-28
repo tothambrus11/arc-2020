@@ -3,19 +3,22 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Main {
+    //TODO create external function
+
     //robot params
     final static int robotDInMMs = 270;
     final static double robotR = (double) robotDInMMs / (2 * 115);
-    final static int robotSpeed = 25; //*0.001 tile/s, default: 7
+    final static int robotSpeed = 15; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 1.1; //*1000 degrees/s, default: 0.2
 
     //map params, TODO read these
-    final static String input1 = "(I,H,G,J)(T,K,R,M)(Q,G,S,I)(D,L,F,N)(O,Q,Q,S)(N,R,L,T)";
-    final static String input2 = "(I,H,G,J)(I,Q,G,S)(F,L,D,N)(O,M,Q,O)(Q,G,S,I)(N,R,L,T)";
-    final static String input3 = "(I,H,G,J)(Q,O,S,Q)(R,L,T,N)(M,R,O,T)(I,Q,G,S)(F,M,D,O)";
-    final static String input4 = "(I,H,G,J)(R,L,T,N)(J,N,H,P)(M,R,K,T)(N,Q,P,S)(Q,H,S,J)";
-    final static int trueMap = 2;
+    final static String input1 = "(O,F,N,I)(K,R,M,T)(F,P,H,R)(N,Q,P,S)(Q,N,S,P)(E,H,G,J)";
+    final static String input2 = "(O,F,N,I)(R,L,T,N)(D,K,F,M)(Q,Q,O,S)(L,R,N,T)(E,H,G,J)";
+    final static String input3 = "(O,F,N,I)(G,H,E,J)(O,Q,Q,S)(H,P,F,R)(T,L,R,N)(K,O,M,Q)";
+    final static String input4 = "(O,F,N,I)(M,R,K,T)(R,K,T,M)(F,L,D,N)(G,G,E,I)(Q,Q,O,S)";
+    final static int trueMap = 1;
 
+    //TODO check colors with robot
     static int[][] colorsInOrder = new int[][]{
             {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
             {Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE, Colors.ORANGE}
@@ -27,6 +30,8 @@ public class Main {
             new Colors(Colors.RED),
             new Colors(Colors.YELLOW)
     };
+
+
     static Parking parkingZone;
     static Position startPos, homePos;
     static Robot robot;
@@ -43,8 +48,6 @@ public class Main {
 
     static ArrayList<Map> trueMaps = new ArrayList<>();
 
-    //TODO timer
-
     static final int screenWidth = 600;
     static final int screenHeight = 600;
 
@@ -52,18 +55,16 @@ public class Main {
         trueMaps.add(map1);
         trueMaps.add(map2);
         trueMaps.add(map3);
-        //trueMaps.add(map4);
-
+        trueMaps.add(map4);
 
         getNextRoute();
         createFrame();
 
         robot.move(nextRoute);
         while (found < 3) {
-            System.err.println("elkezdte");
             getNextRoute();
             robot.move(nextRoute);
-            int wrongMap = -1;
+            int wrongMap = 0;
             for (Map map : trueMaps) {
                 for (int i = 0; i < map.pickUpPositions.length; i++) {
                     if (robot.pos.equals(map.pickUpPositions[i])) {
@@ -71,6 +72,7 @@ public class Main {
                             wrongMap = map.id;
                             break;
                         } else {
+                            wrongMap = -1;
                             allColors[map.boxes[i].color].known = true;
                             allColors[map.boxes[i].color].boxId = i;
                             if (map.boxes[i].color == nextColor) {
@@ -80,21 +82,36 @@ public class Main {
                         }
                     }
                 }
-                if (wrongMap != -1) {
+                if (wrongMap != 0) {
                     break;
                 }
             }
 
-            if (wrongMap != -1) {
-                ArrayList<Map> tempTrueMaps = new ArrayList<>();
-                for (Map map : trueMaps) {
-                    if (map.id != wrongMap) {
-                        tempTrueMaps.add(map);
+            if (wrongMap != 0) {
+                if (wrongMap == -1) {
+                    ArrayList<Map> tempMap = new ArrayList<>();
+                    for (Map map : trueMaps) {
+                        if (map.id == trueMap) {
+                            tempMap.add(map);
+                            break;
+                        }
                     }
-                }
 
-                trueMaps = new ArrayList<>();
-                trueMaps.addAll(tempTrueMaps);
+                    trueMaps = new ArrayList<>();
+                    trueMaps.addAll(tempMap);
+                } else {
+
+
+                    ArrayList<Map> tempTrueMaps = new ArrayList<>();
+                    for (Map map : trueMaps) {
+                        if (map.id != wrongMap) {
+                            tempTrueMaps.add(map);
+                        }
+                    }
+
+                    trueMaps = new ArrayList<>();
+                    trueMaps.addAll(tempTrueMaps);
+                }
             }
         }
 
@@ -153,10 +170,13 @@ public class Main {
                 }
             }
 
+            if (shortestRoute == null) {
+                System.err.println("null route");
+            }
+
             nextRoute = new Route(shortestRoute);
         }
     }
-
 }
 
 class Position {
@@ -206,6 +226,13 @@ class Position {
         if (pos1.x == pos2.x) {
             double dist = Math.abs(pos1.x - x);
             Position closest = new Position(pos1.x, y);
+
+            return new DistFromLine(dist, closest);
+        }
+
+        if(pos1.y == pos2.y){
+            double dist = Math.abs(pos1.y - y);
+            Position closest = new Position(x, pos1.y);
 
             return new DistFromLine(dist, closest);
         }
@@ -399,10 +426,6 @@ class Box {
         colorOnTop = Main.colorsInOrder[1][id];
         this.id = id;
     }
-
-    void checkColor() {
-        //TODO check color
-    }
 }
 
 class DangerZone {
@@ -511,6 +534,7 @@ class Route {
     Position startPos, endPos;
     ArrayList<Position> stops = new ArrayList<>();
     ArrayList<Route> possibleRoutes = new ArrayList<>();
+    boolean isPossible = true;
 
     Route(Position startPos, Position endPos) {
         this.startPos = startPos;
@@ -518,7 +542,9 @@ class Route {
 
         calcAsGrid();
 
-        System.out.println("route found");
+        if (!noCross()){
+            isPossible = false;
+        }
     }
 
     Route(Route route) {
@@ -530,6 +556,10 @@ class Route {
     }
 
     void calcAsGrid() {
+        if (!possible()) {
+            return;
+        }
+
         possibleRoutes = new ArrayList<>();
         possibleRoutes.add(this);
 
@@ -537,7 +567,6 @@ class Route {
         int limit = 0;
         while (!finished && limit < 2) {
             limit++;
-            System.out.println("calculating..." + possibleRoutes.size());
             ArrayList<Route> tempPossibleRoutes = new ArrayList<>();
 
             for (Route route : possibleRoutes) {
@@ -574,8 +603,24 @@ class Route {
         }
 
         if (!finished) {
-            startPos = null;
+            isPossible = false;
         }
+    }
+
+    boolean possible() {
+        if (!isPossible) {
+            return false;
+        }
+
+        for (Map map : Main.trueMaps) {
+            for (DangerZone dangerZone : map.dangerZones) {
+                if (endPos.dist(dangerZone.center) <= Main.robotR + 0.05) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     /*
@@ -777,7 +822,7 @@ class Route {
     }
     */
 
-    static Route addedStop(Route route, Position[] stop, int at) {
+    /*static Route addedStop(Route route, Position[] stop, int at) {
 
         Route myRoute = new Route(route);
 
@@ -790,7 +835,7 @@ class Route {
         }
 
         return myRoute;
-    }
+    }*/
 
     static Position[] whereToAddStop(Position segmentStart, Position segmentEnd) {
 
@@ -811,7 +856,7 @@ class Route {
         return null;
     }
 
-    static Position[] stopPos(Position[] stopAt) {
+    /*static Position[] stopPos(Position[] stopAt) {
         Position at = stopAt[0];
         Position center = stopAt[1];
         Position start = stopAt[2];
@@ -869,7 +914,7 @@ class Route {
         Position ur = new Position(x_ur, y_ur);
 
         return new Position[]{ll, lr, ul, ur};
-    }
+    }*/
 
     boolean noCross() {
         if (stops.size() > 0) {
@@ -893,7 +938,7 @@ class Route {
     double length() {
         double length = 0;
 
-        if (startPos == null) return 1000000;
+        if (!possible()) return 1000000;
 
         if (stops.size() > 0) {
             length += Math.sqrt(
@@ -922,7 +967,7 @@ class Route {
         return length;
     }
 
-    void removeRedundantStops() {
+    /*void removeRedundantStops() {
         boolean finished = false;
         while (!finished) {
             finished = true;
@@ -938,7 +983,7 @@ class Route {
                 }
             }
         }
-    }
+    }*/
 
     void beACopy(Route route) {
         startPos = route.startPos;
@@ -951,7 +996,7 @@ class Route {
         possibleRoutes.addAll(route.possibleRoutes);
     }
 
-    boolean equals(Route route) {
+    /*boolean equals(Route route) {
 
         if (stops.size() != route.stops.size()) return false;
 
@@ -960,15 +1005,15 @@ class Route {
         }
 
         return startPos.equals(route.startPos) && endPos.equals(route.endPos);
-    }
+    }*/
 
-    boolean isIn(ArrayList<Route> routes) {
+    /*boolean isIn(ArrayList<Route> routes) {
         for (Route route : routes) {
             if (equals(route)) return true;
         }
 
         return false;
-    }
+    }*/
 }
 
 class MyPanel extends JComponent {
@@ -1186,7 +1231,6 @@ class Map {
     DangerZone[] dangerZones = new DangerZone[5 * 5 + 4 + 3];
     Position[] pickUpPositions = new Position[5];
     double[] pickUpDirections = new double[5];
-    //TODO boolean fake = true;
 
     Map(String input, int id) {
         this.id = id;
