@@ -1,7 +1,10 @@
 package hu.johetajava;
 
 import com.hopding.jrpicam.RPiCamera;
+import hu.johetajava.imageProcessing.CubePosInfo;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
+import hu.johetajava.pathfinding.Main_pathfinding;
+import hu.johetajava.pathfinding.RobotInterface;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -56,6 +59,29 @@ public class Main {
             arm.setPos(0f, true);
             return;
         }
+
+        Main_pathfinding.run(new RobotInterface() {
+            @Override
+            public void go(double units) {
+                chassis.go((float) units, 200, true);
+            }
+
+            @Override
+            public void turn(double fullRotations) {
+                chassis.turnRotations((float) fullRotations, 80, true);
+            }
+
+            @Override
+            public CubePosInfo positionToCube() {
+                try {
+                    return chassis.positionSidewaysFullProcedure();
+                } catch (InterruptedException | IOException | NoCubeFoundException e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+        });
 
 
         chassis.goToEdgePrecise();

@@ -1,9 +1,11 @@
 package hu.johetajava.pathfinding;
 
+import hu.johetajava.imageProcessing.CubePosInfo;
+
 public abstract class RobotInterface {
     public abstract void go(double units);
 
     public abstract void turn(double fullRotations);
 
-    public abstract CubesColor positionToCube();
+    public abstract CubePosInfo positionToCube();
 }

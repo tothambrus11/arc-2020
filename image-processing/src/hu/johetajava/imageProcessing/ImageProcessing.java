@@ -23,12 +23,9 @@ public class ImageProcessing {
     public static void main(String[] args) throws IOException, NoCubeFoundException {
         File f = new File("blue.jpg");
         var img = ImageIO.read(f);
-        double currentPos = cubeInfoOnPicture(img).positionPx;
+        CubePosInfo info = cubeInfoOnPicture(img);
 
-        double desiredPos = img.getWidth() / 2d;
-        double move = desiredPos - currentPos;
-        double unitsToMove = pxToUnit(move);
-        System.out.println("pixel error: " + move);
+        double unitsToMove = info.errorUnits;
 
         System.out.println(" ==> Units to move: " + unitsToMove);
     }
@@ -47,29 +44,41 @@ public class ImageProcessing {
 
 
     public static CubePosInfo cubeInfoOnPicture(BufferedImage img) throws NoCubeFoundException {
-        int atY = img.getHeight() / 2;
+        var cubeEntry = getColorBestEntry(img.getHeight() / 2, img);
+        var boxEntry = getColorBestEntry(img.getHeight() - 1, img);
 
-        HashMap<MyColor, ColorInfo> colorInfos = new HashMap<>();
-        colorInfos.put(MyColor.RED, new ColorInfo());
-        colorInfos.put(MyColor.YELLOW, new ColorInfo());
-        colorInfos.put(MyColor.ORANGE, new ColorInfo());
-        colorInfos.put(MyColor.BLUE, new ColorInfo());
-        colorInfos.put(MyColor.GREEN, new ColorInfo());
+        double posPx = (double) cubeEntry.getValue().pixelSum / (double) cubeEntry.getValue().pixelCount;
+        double posErrorPx = posPx - img.getWidth() / 2d;
+
+        return new CubePosInfo(
+                pxToUnit(posErrorPx),// error [units]
+                cubeEntry.getKey(),  // cube color
+                boxEntry.getKey()    // box color
+        );
+    }
+
+    static Map.Entry<MyColor, ColorInfo> getColorBestEntry(int y, BufferedImage img) throws NoCubeFoundException {
+        HashMap<MyColor, ColorInfo> cubeColorInfos = new HashMap<>();
+        cubeColorInfos.put(MyColor.RED, new ColorInfo());
+        cubeColorInfos.put(MyColor.YELLOW, new ColorInfo());
+        cubeColorInfos.put(MyColor.ORANGE, new ColorInfo());
+        cubeColorInfos.put(MyColor.BLUE, new ColorInfo());
+        cubeColorInfos.put(MyColor.GREEN, new ColorInfo());
 
         float[] hsb = new float[3];
         Color color;
         MyColor mc;
         for (int x = 0; x < img.getWidth(); x++) {
-            color = new Color(img.getRGB(x, atY));
+            color = new Color(img.getRGB(x, y));
 
             mc = getMyColor(color);
             if (mc != MyColor.NONE) {
-                colorInfos.get(mc).pixelCount++;
-                colorInfos.get(mc).pixelSum += x;
+                cubeColorInfos.get(mc).pixelCount++;
+                cubeColorInfos.get(mc).pixelSum += x;
             }
         }
 
-        var es = colorInfos.entrySet();
+        var es = cubeColorInfos.entrySet();
         Map.Entry<MyColor, ColorInfo> bestEntry = null;
 
         for (Map.Entry<MyColor, ColorInfo> entry : es) {
@@ -83,9 +92,8 @@ public class ImageProcessing {
             throw new NoCubeFoundException();
         }
 
-        return new CubePosInfo((double) bestEntry.getValue().pixelSum / (double) bestEntry.getValue().pixelCount, bestEntry.getKey());
+        return bestEntry;
     }
-
 
     static MyColor getMyColor(Color color) {
         float[] hsb = new float[3];
@@ -108,18 +116,6 @@ public class ImageProcessing {
             }
         }
         return MyColor.NONE;
-    }
-
-    public static double cubePosErrorPx(BufferedImage img) throws NoCubeFoundException {
-        return cubePosOnPicturePx(img) - img.getWidth() / 2d;
-    }
-
-    public static double cubePosOnPicturePx(BufferedImage img) throws NoCubeFoundException {
-        return cubeInfoOnPicture(img).positionPx;
-    }
-
-    public static double cubePosErrorUnit(BufferedImage img) throws NoCubeFoundException {
-        return pxToUnit(cubePosErrorPx(img));
     }
 
     public static String date() {

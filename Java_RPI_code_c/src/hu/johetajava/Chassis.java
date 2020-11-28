@@ -1,5 +1,6 @@
 package hu.johetajava;
 
+import hu.johetajava.imageProcessing.CubePosInfo;
 import hu.johetajava.imageProcessing.ImageProcessing;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
 
@@ -135,22 +136,27 @@ public class Chassis {
     }
 
 
-    public void positionSidewaysFullProcedure() throws InterruptedException, IOException, NoCubeFoundException {
+    public CubePosInfo positionSidewaysFullProcedure() throws InterruptedException, IOException, NoCubeFoundException {
+        chassis.goToEdgePrecise();
         go(-0.9f, 100, true);
 
-        double unitError = ImageProcessing.cubePosErrorUnit(robotCamera.takePicture());
-        double mmError = ImageProcessing.unitToMM(unitError);
+        CubePosInfo info = ImageProcessing.cubeInfoOnPicture(robotCamera.takePicture());
+
+        double mmError = ImageProcessing.unitToMM(info.errorUnits);
 
         while (Math.abs(mmError) >= 10) {
             System.out.println("Move sideways");
-            chassis.moveSideways(unitError, 40);
+            chassis.moveSideways(info.errorUnits, 40);
 
-            unitError = ImageProcessing.cubePosErrorUnit(robotCamera.takePicture());
-            mmError = ImageProcessing.unitToMM(unitError);
+            info = ImageProcessing.cubeInfoOnPicture(robotCamera.takePicture());
+
+            mmError = ImageProcessing.unitToMM(info.errorUnits);
         }
+
         System.out.println("MM ERROR: " + mmError);
         arm.posOffset = arm.mmToArmOffset(mmError);
         System.out.println("POS OFFSET: " + arm.posOffset);
 
+        return info;
     }
 }
