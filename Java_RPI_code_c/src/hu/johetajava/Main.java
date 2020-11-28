@@ -60,7 +60,7 @@ public class Main {
             return;
         }
 
-        Main_pathfinding.run(new RobotInterface() {
+        /*Main_pathfinding.run(new RobotInterface() {
             @Override
             public void go(double units) {
                 chassis.go((float) units, 200, true);
@@ -81,15 +81,15 @@ public class Main {
 
                 return null;
             }
-        });
+        });*/
 
 
-        chassis.goToEdgePrecise();
+       /* chassis.goToEdgePrecise();
 
         chassis.positionSidewaysFullProcedure();
 
         System.exit(0);
-
+*/
         //ImageProcessing.takePicture();
 
         //System.exit(1);
@@ -115,7 +115,6 @@ public class Main {
         Thread.sleep(500);
 
         chassis.go(2f, 200, true);
-        chassis.goToEdgePrecise();
         chassis.positionSidewaysFullProcedure();
         chassis.goToEdgePrecise();
 

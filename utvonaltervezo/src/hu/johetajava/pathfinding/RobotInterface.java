@@ -8,4 +8,7 @@ public abstract class RobotInterface {
     public abstract void turn(double fullRotations);
 
     public abstract CubePosInfo positionToCube();
+
+    public abstract void goToEdge();
+
 }

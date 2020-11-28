@@ -130,7 +130,8 @@ public class Main_pathfinding {
             robotInterface.go(4);
             robotInterface.turn(0.25); // 90 fok balra
             robotInterface.turn(-0.25); // 90 fok jobbra
-            robotInterface.positionToCube(); // Mielőtt ezt lefuttatjuk, a kocka szélétől kb 2 unitra kell legyen a robot. Ez berakja a kockacserélgetéshez tökéletes pozícióba.
+            robotInterface.positionToCube(); // Mielőtt ezt lefuttatjuk, a kocka szélétől kb 2 unitra kell legyen a robot. Visszaadja a kockák színét.
+            robotInterface.goToEdge(); // Az előbbi függvény után le kell futtatni ezt is, hogy odamenjünk közel a kockához kockafelvételre
         }
     }
 

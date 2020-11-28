@@ -53,7 +53,21 @@ public class Arm {
 
         closeRight(true);
         up(true);
-        setPos(0f, true);
+        reset();
+    }
+
+    void catchCubeLeft(){
+        Main.chassis.go(-0.06f, 20, true);
+        closeLeft(false);
+        setPos(1100f, true);
+        down(true);
+        Main.chassis.goToEdge(20);
+        Main.chassis.go(0.06f, 20, true);
+
+        closeLeft(true);
+        up(true);
+
+        reset();
     }
 
     private void sleep(int millis) {
