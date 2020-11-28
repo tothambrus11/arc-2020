@@ -5,7 +5,7 @@
       <sshConfig authType="PASSWORD" host="192.168.1.13" id="7c2d8a51-1a14-400d-bafe-854f5e2ab145" port="22" customName="pi" nameFormat="CUSTOM" username="pi">
         <option name="customName" value="pi" />
       </sshConfig>
-      <sshConfig authType="PASSWORD" host="raspberrypi.local" id="3da333eb-a013-4a84-adad-ef25814eb483" port="22" nameFormat="DESCRIPTIVE" username="pi" />
+      <sshConfig authType="PASSWORD" host="raspberrypi" id="91cf6f95-f89a-4c0c-8c6a-e0f1cf6c2574" port="22" nameFormat="DESCRIPTIVE" username="pi" />
     </configs>
   </component>
 </project>
