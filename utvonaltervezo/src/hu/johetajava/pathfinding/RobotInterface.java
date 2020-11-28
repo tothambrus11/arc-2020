@@ -1,3 +1,5 @@
+package hu.johetajava.pathfinding;
+
 public abstract class RobotInterface {
     public abstract void go(double units);
 

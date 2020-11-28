@@ -57,6 +57,7 @@ public class Main {
             return;
         }
 
+
         chassis.goToEdgePrecise();
 
         chassis.positionSidewaysFullProcedure();
