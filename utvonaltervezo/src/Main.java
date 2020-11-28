@@ -7,7 +7,8 @@ public class Main {
 
     //robot params
     final static int robotDInMMs = 270;
-    final static double robotR = (double) robotDInMMs / (2 * 115);
+    //TODO adjust robotR on parking
+    static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 15; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 1.1; //*1000 degrees/s, default: 0.2
 
