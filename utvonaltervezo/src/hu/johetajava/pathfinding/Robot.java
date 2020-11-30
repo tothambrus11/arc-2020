@@ -31,20 +31,33 @@ public class Robot {
     }
 
     void moveTo(Position position) {
+        if (position.equals(pos)) {
+            return;
+        }
+
         double dX = position.x - pos.x;
         double dY = position.y - pos.y;
         double dist = pos.dist(position);
         double moveX = dX * speed / (dist * 1000);
         double moveY = dY * speed / (dist * 1000);
 
-        int offSet;
+        int offSet = 0;
         if (dX > 0) {
             offSet = 90;
-        } else {
+        } else if(dX < 0) {
             offSet = -90;
         }
+
         double angle = Math.atan(dY / dX);
         double dirTo = (angle * 180) / Math.PI + offSet;
+
+        if(dX == 0){
+            if(dY > 0){
+                dirTo = 180;
+            } else {
+                dirTo = 0;
+            }
+        }
 
         turnTo(dirTo);
 
@@ -66,20 +79,23 @@ public class Robot {
     }
 
     void turnTo(double dirTo) {
-        while (dir != dirTo) {
-            double delta = dirTo - dir;
-            boolean right = Math.abs(dir - dirTo) < 360 - Math.abs(dir - dirTo);
-            if (delta < 0) {
-                right = !right;
-            }
+        double turnInDegrees = (dir - dirTo)%360;
+        if(turnInDegrees > 180){
+            turnInDegrees -= 360;
+        } else if(turnInDegrees < -180){
+            turnInDegrees += 360;
+        }
 
-            double leftUntil = Math.abs(dir - dirTo);
+        boolean right = turnInDegrees > 0;
+        while (dir != dirTo) {
             if (right) {
-                dir += turnSpeed;
-            } else {
                 dir -= turnSpeed;
+                turnInDegrees -= turnSpeed;
+            } else {
+                dir += turnSpeed;
+                turnInDegrees += turnSpeed;
             }
-            if (Math.abs(dir - dirTo) > leftUntil) dir = dirTo;
+            if ((right && turnInDegrees < 0) || (!right && turnInDegrees > 0)) dir = dirTo;
 
             try {
                 Thread.sleep(1);

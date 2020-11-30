@@ -45,15 +45,35 @@ public class Position {
 
     DistFromLine distFromLine(Position pos1, Position pos2) {
         if (pos1.x == pos2.x) {
-            double dist = Math.abs(pos1.x - x);
-            Position closest = new Position(pos1.x, y);
+            double dist;
+            Position closest;
+            if (y > Math.max(pos1.y, pos2.y)) {
+                dist = pos1.y > pos2.y ? dist(pos1) : dist(pos2);
+                closest = pos1.y > pos2.y ? pos1 : pos2;
+            } else if (y < Math.min(pos1.y, pos2.y)) {
+                dist = pos1.y < pos2.y ? dist(pos1) : dist(pos2);
+                closest = pos1.y < pos2.y ? pos1 : pos2;
+            } else {
+                dist = Math.abs(pos1.x - x);
+                closest = new Position(pos1.x, y);
+            }
 
             return new DistFromLine(dist, closest);
         }
 
         if (pos1.y == pos2.y) {
-            double dist = Math.abs(pos1.y - y);
-            Position closest = new Position(x, pos1.y);
+            double dist;
+            Position closest;
+            if (x > Math.max(pos1.x, pos2.x)) {
+                dist = pos1.x > pos2.x ? dist(pos1) : dist(pos2);
+                closest = pos1.x > pos2.x ? pos1 : pos2;
+            } else if (x < Math.min(pos1.x, pos2.x)) {
+                dist = pos1.x < pos2.x ? dist(pos1) : dist(pos2);
+                closest = pos1.x < pos2.x ? pos1 : pos2;
+            } else {
+                dist = Math.abs(pos1.y - y);
+                closest = new Position(x, pos1.y);
+            }
 
             return new DistFromLine(dist, closest);
         }
