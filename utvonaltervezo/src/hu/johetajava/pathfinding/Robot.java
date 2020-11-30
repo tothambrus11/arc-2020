@@ -41,14 +41,23 @@ public class Robot {
         double moveX = dX * speed / (dist * 1000);
         double moveY = dY * speed / (dist * 1000);
 
-        int offSet;
+        int offSet = 0;
         if (dX > 0) {
             offSet = 90;
-        } else {
+        } else if(dX < 0) {
             offSet = -90;
         }
+
         double angle = Math.atan(dY / dX);
         double dirTo = (angle * 180) / Math.PI + offSet;
+
+        if(dX == 0){
+            if(dY > 0){
+                dirTo = 180;
+            } else {
+                dirTo = 0;
+            }
+        }
 
         turnTo(dirTo);
 

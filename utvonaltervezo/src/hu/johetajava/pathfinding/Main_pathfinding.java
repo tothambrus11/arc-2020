@@ -9,14 +9,14 @@ public class Main_pathfinding {
     //TODO adjust robotR on parking
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 15; //*0.001 tile/s, default: 7
-    final static double robotTurnSpeed = 0.2; //*1000 degrees/s, default: 0.2
+    final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
 
     //map params, TODO read these
     final static String input1 = "(O,F,N,I)(K,R,M,T)(F,P,H,R)(N,Q,P,S)(Q,N,S,P)(E,H,G,J)";
     final static String input2 = "(O,F,N,I)(R,L,T,N)(D,K,F,M)(Q,Q,O,S)(L,R,N,T)(E,H,G,J)";
     final static String input3 = "(O,F,N,I)(G,H,E,J)(O,Q,Q,S)(H,P,F,R)(T,L,R,N)(K,O,M,Q)";
     final static String input4 = "(O,F,N,I)(M,R,K,T)(R,K,T,M)(F,L,D,N)(G,G,E,I)(Q,Q,O,S)";
-    final static int trueMap = 1;
+    final static int trueMap = 2;
 
     //TODO check colors with robot
     static int[][] colorsInOrder = new int[][]{
