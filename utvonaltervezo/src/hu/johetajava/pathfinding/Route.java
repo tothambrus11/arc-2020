@@ -28,6 +28,10 @@ public class Route {
     }
 
     void calcAsGrid() {
+        if(startPos.equals(endPos)){
+            return;
+        }
+
         if (!possible()) {
             return;
         }

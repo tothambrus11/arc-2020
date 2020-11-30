@@ -31,6 +31,10 @@ public class Robot {
     }
 
     void moveTo(Position position) {
+        if(position.equals(pos)){
+            return;
+        }
+
         double dX = position.x - pos.x;
         double dY = position.y - pos.y;
         double dist = pos.dist(position);
