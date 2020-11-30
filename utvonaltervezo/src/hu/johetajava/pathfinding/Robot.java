@@ -31,7 +31,7 @@ public class Robot {
     }
 
     void moveTo(Position position) {
-        if(position.equals(pos)){
+        if (position.equals(pos)) {
             return;
         }
 
@@ -70,20 +70,23 @@ public class Robot {
     }
 
     void turnTo(double dirTo) {
-        while (dir != dirTo) {
-            double delta = dirTo - dir;
-            boolean right = Math.abs(dir - dirTo) < 360 - Math.abs(dir - dirTo);
-            if (delta < 0) {
-                right = !right;
-            }
+        double turnInDegrees = (dir - dirTo)%360;
+        if(turnInDegrees > 180){
+            turnInDegrees -= 360;
+        } else if(turnInDegrees < -180){
+            turnInDegrees += 360;
+        }
 
-            double leftUntil = Math.abs(dir - dirTo);
+        boolean right = turnInDegrees > 0;
+        while (dir != dirTo) {
             if (right) {
-                dir += turnSpeed;
-            } else {
                 dir -= turnSpeed;
+                turnInDegrees -= turnSpeed;
+            } else {
+                dir += turnSpeed;
+                turnInDegrees += turnSpeed;
             }
-            if (Math.abs(dir - dirTo) > leftUntil) dir = dirTo;
+            if ((right && turnInDegrees < 0) || (!right && turnInDegrees > 0)) dir = dirTo;
 
             try {
                 Thread.sleep(1);

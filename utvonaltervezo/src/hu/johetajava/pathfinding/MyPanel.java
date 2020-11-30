@@ -51,7 +51,7 @@ public class MyPanel extends JComponent {
         double angle = ((-Main_pathfinding.robot.dir + 180) * Math.PI / 180) % 360;
         double endX = (Main_pathfinding.robot.pos.x + Main_pathfinding.robotR * 1.2 * Math.sin(angle));
         double endY = (Main_pathfinding.robot.pos.y + Main_pathfinding.robotR * 1.2 * Math.cos(angle));
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
         g.drawLine(
                 (int) (Main_pathfinding.robot.pos.x * 115 / 4 + 50 / 4),
                 (int) (Main_pathfinding.robot.pos.y * 115 / 4 + 50 / 4),
@@ -101,7 +101,7 @@ public class MyPanel extends JComponent {
 
         for (Map map : Main_pathfinding.trueMaps) {
             //paint danger zones
-            g.setColor(Color.RED);
+            /*g.setColor(Color.RED);
             for (int i = 0; i < map.dangerZones.length; i++) {
                 if (map.dangerZones[i] == null) {
                     System.out.println(i + " null");
@@ -112,7 +112,7 @@ public class MyPanel extends JComponent {
                         (int) (map.dangerZones[i].center.y * 115 / 4 + 50 / 4 - map.dangerZones[i].r / 8),
                         map.dangerZones[i].r / 4, map.dangerZones[i].r / 4
                 );
-            }
+            }*/
 
             //paint boxes
             for (int i = 0; i < map.boxes.length; i++) {
