@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Main_pathfinding {
-    final static boolean debug = true;
-
     //robot params
     final static int robotDInMMs = 270;
     static double robotR = (double) robotDInMMs / (2 * 115);
@@ -135,8 +133,73 @@ public class Main_pathfinding {
         trueMaps.add(map3);
         trueMaps.add(map4);
 
-        //get first route
+        //get and navigate first route
         getNextRoute();
+        robot.move(nextRoute);
+
+        //while we don't have the 3rd cube
+        while (found < 3) {
+            //get and navigate next route
+            getNextRoute();
+            robot.move(nextRoute);
+
+
+            int wrongMap = 0;
+            for (Map map : trueMaps) {
+                for (int i = 0; i < map.pickUpPositions.length; i++) {
+                    if (robot.pos.equals(map.pickUpPositions[i])) {
+                        if (!robotInterface.isTrueBox()) {
+                            wrongMap = map.id;
+                            break;
+                        } else {
+                            wrongMap = -1;
+                            allColors[map.boxes[i].color].known = true;
+                            allColors[map.boxes[i].color].boxId = i;
+                            if (map.boxes[i].color == nextColor) {
+                                nextColor = map.boxes[i].colorOnTop;
+                                found++;
+                            }
+                        }
+                    }
+                }
+                if (wrongMap != 0) {
+                    break;
+                }
+            }
+
+            if (wrongMap != 0) {
+                if (wrongMap == -1) {
+                    ArrayList<Map> tempMap = new ArrayList<>();
+                    for (Map map : trueMaps) {
+                        if (map.id == trueMap) {
+                            tempMap.add(map);
+                            break;
+                        }
+                    }
+
+                    trueMaps = new ArrayList<>();
+                    trueMaps.addAll(tempMap);
+                } else {
+
+
+                    ArrayList<Map> tempTrueMaps = new ArrayList<>();
+                    for (Map map : trueMaps) {
+                        if (map.id != wrongMap) {
+                            tempTrueMaps.add(map);
+                        }
+                    }
+
+                    trueMaps = new ArrayList<>();
+                    trueMaps.addAll(tempTrueMaps);
+                }
+            }
+        }
+
+        getNextRoute();
+        robot.move(nextRoute);
+        getNextRoute();
+        robot.move(nextRoute);
+
 
 
 

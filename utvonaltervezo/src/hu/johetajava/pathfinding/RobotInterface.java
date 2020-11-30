@@ -21,4 +21,9 @@ public abstract class RobotInterface {
     "(O,F,N,I)(M,R,K,T)(R,K,T,M)(F,L,D,N)(G,G,E,I)(Q,Q,O,S)"
     };
     */
+
+
+    //megnézi hogy van-e előttünk doboz
+    //innen tudjuk, hogy igazi-e az a map amin a jelenlegi pozíciónk előtt van egy doboz
+    public abstract boolean isTrueBox();
 }
