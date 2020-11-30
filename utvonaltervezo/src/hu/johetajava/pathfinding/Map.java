@@ -106,28 +106,28 @@ public class Map {
             switch (closest) {
                 case 0:
                     pickUpPositions[i] = new Position(
-                            boxes[i].pos.x, boxes[i].pos.y + (1.05 + Main_pathfinding.robotR)
+                            boxes[i].pos.x, boxes[i].pos.y + (3)
                     );
                     pickUpDirections[i] = 0;
                     break;
 
                 case 1:
                     pickUpPositions[i] = new Position(
-                            boxes[i].pos.x - (1.05 + Main_pathfinding.robotR), boxes[i].pos.y
+                            boxes[i].pos.x - (3), boxes[i].pos.y
                     );
                     pickUpDirections[i] = 90;
                     break;
 
                 case 2:
                     pickUpPositions[i] = new Position(
-                            boxes[i].pos.x, boxes[i].pos.y - (1.05 + Main_pathfinding.robotR)
+                            boxes[i].pos.x, boxes[i].pos.y - (3)
                     );
                     pickUpDirections[i] = 180;
                     break;
 
                 case 3:
                     pickUpPositions[i] = new Position(
-                            boxes[i].pos.x + (1.05 + Main_pathfinding.robotR), boxes[i].pos.y
+                            boxes[i].pos.x + (3), boxes[i].pos.y
                     );
                     pickUpDirections[i] = 270;
                     break;
