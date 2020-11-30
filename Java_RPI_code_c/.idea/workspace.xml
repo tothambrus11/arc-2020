@@ -10,8 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64d2dfb5-7c9c-4f85-b1c5-4a019d9729e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/sounds_artifact.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/h.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/ynl.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Arm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Chassis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/RobotCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/RobotCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../image-processing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ColorInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ColorInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +56,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/Java_RPI_code_c1_jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.254023" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="sshConsole" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -58,9 +71,9 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c" />
       <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\out\artifacts\Java_RPI_code_c1_jar" />
       <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\sounds" />
-      <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c" />
       <recent name="C:\Users\User\OneDrive - Kormányzati Informatikai Fejlesztési Ügynökség\ARCHIVE\2019-2020 (10)\VERSENYEK\WRO_2020\Java_RPI_code_c\lib" />
     </key>
   </component>
@@ -86,6 +99,13 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myConnectionType" value="SSH_CONFIG" />
+    <option name="myConnectionId" value="Copy of project-level server 'rpi'" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\User\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="64d2dfb5-7c9c-4f85-b1c5-4a019d9729e2" name="Default Changelist" comment="" />
@@ -94,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606570029498</updated>
       <workItem from="1606570030777" duration="417000" />
-      <workItem from="1606570546738" duration="18828000" />
+      <workItem from="1606570546738" duration="29894000" />
     </task>
     <task id="LOCAL-00001" summary="Jar buildelések rendben">
       <created>1606573339060</created>
@@ -124,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606599391140</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="IDK">
+      <created>1606752776387</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606752776387</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,17 +165,18 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="implement RobotInterface" />
     <MESSAGE value="működiiik" />
-    <option name="LAST_COMMIT_MESSAGE" value="működiiik" />
+    <MESSAGE value="IDK" />
+    <option name="LAST_COMMIT_MESSAGE" value="IDK" />
   </component>
   <component name="WindowStateProjectService">
     <state x="229" y="0" key="#SSH_Configurations" timestamp="1606571526481">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="229" y="0" key="#SSH_Configurations/0.0.1366.728@0.0.1366.728" timestamp="1606571526481" />
-    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606572521215">
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606761536458">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606572521215" />
+    <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606761536458" />
     <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606587738339">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -169,10 +197,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="404" y="119" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606582370451" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606599389311">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1606752771540">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606599389311" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606752771540" />
     <state x="480" y="239" key="DetectedRootsChooserDialog" timestamp="1606570221762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -181,38 +209,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="73" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606588187995" />
-    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1606596670349">
+    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1606762750150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606596670349" />
-    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1606596670349">
+    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
+    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1606762750150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606596670349" />
-    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1606596670348">
+    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
+    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1606762750150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606596670348" />
-    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1606596670349">
+    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
+    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1606762750150">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606596670349" />
+    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
     <state x="306" y="68" width="1060" height="591" key="NewModule_or_Project.wizard" timestamp="1606570177005">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="306" y="68" width="1060" height="591" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1606570177005" />
-    <state x="154" y="0" key="SettingsEditor" timestamp="1606588261225">
+    <state x="154" y="0" key="SettingsEditor" timestamp="1606753568599">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="154" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606588261225" />
+    <state x="154" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606753568599" />
     <state x="264" y="97" key="Vcs.Push.Dialog.v2" timestamp="1606599412670">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="264" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606599412670" />
-    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1606597229694">
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606752791190">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606597229694" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1606752791189" />
+    <state x="390" y="97" width="585" height="534" key="find.popup" timestamp="1606756646645">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="97" width="585" height="534" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606756646645" />
     <state x="538" y="85" key="ftp.server.browser" timestamp="1606571376905">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -221,9 +253,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="272" y="47" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1606570077082" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606592788243">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606762747021">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606592788243" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606762747021" />
   </component>
 </project>

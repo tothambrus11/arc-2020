@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8130b49-b510-49dc-91c1-7eaa5ad3d58c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/artifacts/sounds_artifact.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/h.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ynl.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/RobotCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/RobotCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ColorInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ColorInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606566315868</updated>
-      <workItem from="1606566319048" duration="7716000" />
+      <workItem from="1606566319048" duration="14388000" />
     </task>
     <task id="LOCAL-00001" summary="ImageProcessing jó">
       <created>1606566751078</created>
@@ -105,10 +117,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="14" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1606566339763" />
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1606574649195">
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1606764995854">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1606574649195" />
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1606764995854" />
     <state x="412" y="129" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606574623712">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -117,22 +129,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="29" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606566748999" />
-    <state width="1322" height="298" key="GridCell.Tab.0.bottom" timestamp="1606596158267">
+    <state width="1322" height="393" key="GridCell.Tab.0.bottom" timestamp="1606766671694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="298" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606596158267" />
-    <state width="1322" height="298" key="GridCell.Tab.0.center" timestamp="1606596158267">
+    <state width="1322" height="393" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606766671694" />
+    <state width="1322" height="393" key="GridCell.Tab.0.center" timestamp="1606766671694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="298" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606596158267" />
-    <state width="1322" height="298" key="GridCell.Tab.0.left" timestamp="1606596158267">
+    <state width="1322" height="393" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606766671694" />
+    <state width="1322" height="393" key="GridCell.Tab.0.left" timestamp="1606766671694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="298" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606596158267" />
-    <state width="1322" height="298" key="GridCell.Tab.0.right" timestamp="1606596158267">
+    <state width="1322" height="393" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606766671694" />
+    <state width="1322" height="393" key="GridCell.Tab.0.right" timestamp="1606766671694">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="298" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606596158267" />
+    <state width="1322" height="393" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606766671694" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1606573518831">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

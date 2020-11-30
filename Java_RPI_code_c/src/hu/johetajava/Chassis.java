@@ -45,9 +45,9 @@ public class Chassis {
      * @param wait      Wait for motors
      */
     void turnRotations(Float rotations, int speed, boolean wait) {
-        if(rotations > 0){
+        if (rotations > 0) {
             play("balra");
-        } else if(rotations < 0){
+        } else if (rotations < 0) {
             play("jobbra");
         }
         prizm.sendMessage(TOPIC_TURN_ROTATIONS, rotations.toString().getBytes());
@@ -145,7 +145,7 @@ public class Chassis {
         chassis.goToEdgePrecise();
         go(-0.9f, 100, true);
 
-        CubePosInfo info = ImageProcessing.cubeInfoOnPicture(robotCamera.takePicture());
+        CubePosInfo info = robotCamera.getRobotInfoTryHard();
 
         double mmError = ImageProcessing.unitToMM(info.errorUnits);
 
@@ -153,7 +153,7 @@ public class Chassis {
             System.out.println("Move sideways");
             chassis.moveSideways(info.errorUnits, 40);
 
-            info = ImageProcessing.cubeInfoOnPicture(robotCamera.takePicture());
+            info = robotCamera.getRobotInfoTryHard();
 
             mmError = ImageProcessing.unitToMM(info.errorUnits);
         }

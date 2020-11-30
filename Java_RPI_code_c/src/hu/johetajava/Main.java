@@ -1,10 +1,7 @@
 package hu.johetajava;
 
 import com.hopding.jrpicam.RPiCamera;
-import hu.johetajava.imageProcessing.CubePosInfo;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
-import hu.johetajava.pathfinding.Main_pathfinding;
-import hu.johetajava.pathfinding.RobotInterface;
 import javazoom.jl.player.Player;
 
 import javax.imageio.ImageIO;
@@ -25,6 +22,8 @@ public class Main {
 
     static RobotCamera robotCamera;
 
+    static boolean isArmCalibration = false;
+
     // Args [port] [armOffset]
     public static void main(String[] args) throws Exception, NoCubeFoundException, NoCubeFoundException {
         System.out.println("Starting robot...");
@@ -33,8 +32,10 @@ public class Main {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-                arm.posOffset = 0;
-                arm.setPos(0f, true);
+               if(!isArmCalibration) {
+                   arm.posOffset = 0;
+                   arm.setPos(0f, true);
+               }
                 stopped = true;
                 prizm.serialPort.closePort();
                 prizm.serialPort.openPort();
@@ -57,12 +58,12 @@ public class Main {
 
         int elt = Integer.parseInt(args[1]);
         if (elt != 0) {
-            arm.posOffset = elt;
-            arm.setPos(0f, true);
+            isArmCalibration = true;
+            arm.setAbsolutePos((float) elt, true);
             return;
         }
 
-        /*Main_pathfinding.run(new RobotInterface() {
+        /* Main_pathfinding.run(new RobotInterface() {
             @Override
             public void go(double units) {
                 chassis.go((float) units, 200, true);
@@ -94,7 +95,18 @@ public class Main {
 */
         //ImageProcessing.takePicture();
 
-        //System.exit(1);
+        chassis.positionSidewaysFullProcedure();
+        chassis.goToEdgePrecise();
+        arm.catchCubeLeft();
+        arm.swapCubesToRight();
+        Thread.sleep(2000);
+        arm.closeLeft(true);
+        Thread.sleep(3000);
+
+        arm.catchCubeRight();
+        arm.swapCubesToLeft();
+
+        System.exit(1);
 
         onStart();
         chassis.turnRotations(0.5f, 80, true);
@@ -120,7 +132,7 @@ public class Main {
         chassis.positionSidewaysFullProcedure();
         chassis.goToEdgePrecise();
 
-        arm.swapCubesFromRight();
+        arm.swapCubesToLeft();
 
         /*arm.setPos(1100f, true);
         arm.down(true);

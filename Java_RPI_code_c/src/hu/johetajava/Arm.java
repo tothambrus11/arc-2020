@@ -56,12 +56,12 @@ public class Arm {
 
         closeRight(true);
         up(true);
-        reset(false);
+        setAbsolutePos(0f, false);
     }
 
     void catchCubeLeft(){
         chassis.go(-0.06f, 20, true);
-        closeLeft(false);
+        closeRight(false);
         setPos(1100f, true);
         down(true);
         chassis.goToEdge(20);
@@ -70,7 +70,7 @@ public class Arm {
         closeLeft(true);
         up(true);
 
-        reset(false);
+        setAbsolutePos(0f, false);
     }
 
     private void sleep(int millis) {
@@ -82,15 +82,7 @@ public class Arm {
     }
 
     void setPos(Float pos, boolean wait) {
-        pos += posOffset;
-
-        prizm.sendMessage(TOPIC_ARM_POS, pos.toString().getBytes());
-        prizm.send((byte) ' ', (byte) (wait ? 1 : 0));
-        if (wait) {
-            System.out.println("waiting for ok...");
-            prizm.waitForOk(50);
-            System.out.println("OK received");
-        }
+        setAbsolutePos(pos + posOffset, wait);
     }
 
     int mmToArmOffset(double mmValue) {
@@ -106,7 +98,17 @@ public class Arm {
         setPos(0f, wait);
     }
 
-    public void swapCubesFromRight() {
+    public void setAbsolutePos(Float pos, boolean wait){
+        prizm.sendMessage(TOPIC_ARM_POS, pos.toString().getBytes());
+        prizm.send((byte) ' ', (byte) (wait ? 1 : 0));
+        if (wait) {
+            System.out.println("waiting for ok...");
+            prizm.waitForOk(50);
+            System.out.println("OK received");
+        }
+    }
+
+    public void swapCubesToLeft() {
         chassis.go(-0.06f, 20, false);
         setPos(1100f, true);
         down(true);
@@ -114,10 +116,25 @@ public class Arm {
         chassis.go(0.06f, 20, true);
 
         closeLeft(true);
-        setPos(-1250f, true);
+        setPos(-1220f, true);
         chassis.go(-0.06f, 20, true);
         up(true);
 
-        reset(false);
+        setAbsolutePos(0f, false);
+    }
+
+    public void swapCubesToRight() {
+        chassis.go(-0.06f, 20, false);
+        setPos(-1100f, true);
+        down(true);
+        chassis.goToEdge(20);
+        chassis.go(0.06f, 20, true);
+
+        closeRight(true);
+        setPos(1220f, true);
+        chassis.go(-0.06f, 20, true);
+        up(true);
+
+        setAbsolutePos(0f, false);
     }
 }

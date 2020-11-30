@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="sounds artifact">
+    <output-path>$PROJECT_DIR$/out/artifacts/Java_RPI_code_c1_jar</output-path>
+    <root id="root">
+      <element id="dir-copy" path="$PROJECT_DIR$/sounds" />
+    </root>
+  </artifact>
+</component>
