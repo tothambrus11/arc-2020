@@ -17,7 +17,6 @@ public class Main_pathfinding {
     final static String input4 = "(E,E,F,B)(P,G,R,I)(N,R,L,T)(M,D,O,F)(J,N,H,P)(Q,M,S,O)";
     final static int trueMap = 4;
 
-    //TODO check colors with robot
     static int[][] colorsInOrder = new int[][]{
             {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
             {Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE, Colors.ORANGE}
@@ -121,7 +120,7 @@ public class Main_pathfinding {
         robot.move(nextRoute);
     }
 
-    public static void run(RobotInterface robotInterface){
+    public static void run(RobotInterface robotInterface) {
         //read and calculate maps
         readMaps = robotInterface.readMaps();
         map1 = new Map(readMaps[0], 0, robotInterface);
@@ -146,18 +145,22 @@ public class Main_pathfinding {
 
             int wrongMap = 0;
             for (Map map : trueMaps) {
-                for (int i = 0; i < map.pickUpPositions.length; i++) {
-                    if (robot.pos.equals(map.pickUpPositions[i])) {
+                for (int i = 0; i < map.boxes.length; i++) {
+                    if (robot.isPickUpFrom(map.boxes[i].pos)) {
                         if (!robotInterface.isTrueBox()) {
                             wrongMap = map.id;
                             break;
                         } else {
                             wrongMap = -1;
+                            map.boxes[i].setColors(robotInterface.positionToCube());
+
                             allColors[map.boxes[i].color].known = true;
                             allColors[map.boxes[i].color].boxId = i;
+
                             if (map.boxes[i].color == nextColor) {
                                 nextColor = map.boxes[i].colorOnTop;
                                 found++;
+                                robotInterface.goToEdge();
                             }
                         }
                     }
@@ -180,8 +183,6 @@ public class Main_pathfinding {
                     trueMaps = new ArrayList<>();
                     trueMaps.addAll(tempMap);
                 } else {
-
-
                     ArrayList<Map> tempTrueMaps = new ArrayList<>();
                     for (Map map : trueMaps) {
                         if (map.id != wrongMap) {
@@ -199,8 +200,6 @@ public class Main_pathfinding {
         robot.move(nextRoute);
         getNextRoute();
         robot.move(nextRoute);
-
-
 
 
         /*boolean isRunning = true;
