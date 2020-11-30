@@ -7,6 +7,7 @@ public class Route {
     ArrayList<Position> stops = new ArrayList<>();
     ArrayList<Route> possibleRoutes = new ArrayList<>();
     boolean isPossible = true;
+    double endDir = 10000;
 
     Route(Position startPos, Position endPos) {
         this.startPos = startPos;
@@ -19,9 +20,22 @@ public class Route {
         }
     }
 
+    Route(Position startPos, Box endBox) {
+        this.startPos = startPos;
+        endPos = endBox.pickUpPos;
+        endDir = endBox.pickUpDir;
+
+        calcAsGrid();
+
+        if (!noCross()) {
+            isPossible = false;
+        }
+    }
+
     Route(Route route) {
         startPos = route.startPos;
         endPos = route.endPos;
+        endDir = route.endDir;
 
         stops = new ArrayList<>();
         stops.addAll(route.stops);

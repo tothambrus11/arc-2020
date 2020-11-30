@@ -29,16 +29,18 @@ public class Robot {
 
         moveTo(route.endPos);
 
-        for (Map map : Main_pathfinding.trueMaps) {
-            for (int i = 0; i < map.pickUpPositions.length; i++) {
-                if (map.pickUpPositions[i].equals(route.endPos)) {
-                    turnTo(map.pickUpDirections[i]);
-                    break;
+        if(route.endDir == 10000){
+            for (Map map : Main_pathfinding.trueMaps) {
+                for (int i = 0; i < map.boxes.length; i++) {
+                    if (map.boxes[i].pickUpPos.equals(route.endPos)) {
+                        turnTo(map.boxes[i].pickUpDir);
+                        break;
+                    }
                 }
             }
+        } else {
+            turnTo(route.endDir);
         }
-
-        //System.out.println(dir);
     }
 
     void moveTo(Position position) {
@@ -129,8 +131,10 @@ public class Robot {
         }
     }
 
-    boolean isPickUpFrom(Position cubePosition) {
-        switch ((int) dir) {
+    boolean isPickUpFrom(double pickUpDirection, Position cubePosition) {
+        if(pickUpDirection != dir) return false;
+
+        switch ((int) pickUpDirection) {
             case 0:
                 return cubePosition.equals(new Position(pos.x, pos.y - 3));
 

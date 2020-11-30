@@ -11,11 +11,11 @@ public class Main_pathfinding {
     final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
 
     //map params
-    final static String input1 = "(E,E,F,B)(T,L,R,N)(Q,H,S,J)(K,Q,M,S)(G,P,I,R)(M,E,O,G)";
-    final static String input2 = "(E,E,F,B)(S,M,Q,O)(K,Q,I,S)(P,G,R,I)(N,D,L,F)(M,R,O,T)";
-    final static String input3 = "(E,E,F,B)(M,E,O,G)(S,H,Q,J)(T,K,R,M)(M,R,K,T)(N,Q,P,S)";
-    final static String input4 = "(E,E,F,B)(P,G,R,I)(N,R,L,T)(M,D,O,F)(J,N,H,P)(Q,M,S,O)";
-    final static int trueMap = 4;
+    final static String input1 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
+    final static String input2 = "(M,K,K,M)(K,R,I,T)(F,P,H,R)(T,L,R,N)(L,S,N,U)(O,Q,Q,S)";
+    final static String input3 = "(M,K,K,M)(T,O,R,Q)(F,Q,H,S)(U,K,S,M)(K,S,M,U)(P,R,N,T)";
+    final static String input4 = "(M,K,K,M)(N,S,L,U)(U,K,S,M)(K,R,I,T)(F,Q,H,S)(T,N,R,P)";
+    final static int trueMap = 1;
 
     static int[][] colorsInOrder = new int[][]{
             {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
@@ -62,11 +62,12 @@ public class Main_pathfinding {
         robot.move(nextRoute);
         while (found < 3) {
             getNextRoute();
+            System.out.println(nextRoute.endPos.string());
             robot.move(nextRoute);
             int wrongMap = 0;
             for (Map map : trueMaps) {
                 for (int i = 0; i < map.boxes.length; i++) {
-                    if (robot.isPickUpFrom(map.boxes[i].pos)) {
+                    if (robot.isPickUpFrom(map.boxes[i].pickUpDir, map.boxes[i].pos)) {
                         if (map.id != trueMap) {
                             wrongMap = map.id;
                             break;
@@ -146,7 +147,7 @@ public class Main_pathfinding {
             int wrongMap = 0;
             for (Map map : trueMaps) {
                 for (int i = 0; i < map.boxes.length; i++) {
-                    if (robot.isPickUpFrom(map.boxes[i].pos)) {
+                    if (robot.isPickUpFrom(map.boxes[i].pickUpDir, map.boxes[i].pos)) {
                         if (!robotInterface.isTrueBox()) {
                             wrongMap = map.id;
                             break;
@@ -245,15 +246,14 @@ public class Main_pathfinding {
         } else if (robot.pos.equals(homePos)) {
             nextRoute = new Route(robot.pos, startPos);
         } else if (isKnown(nextColor)) {
-            Position posTo = new Position(Main_pathfinding.trueMaps.get(0).pickUpPositions[allColors[nextColor].boxId]);
-            nextRoute = new Route(robot.pos, posTo);
+            nextRoute = new Route(robot.pos, trueMaps.get(0).boxes[allColors[nextColor].boxId]);
         } else {
             Route shortestRoute = null;
             for (Map map : trueMaps) {
-                for (int i = 0; i < map.pickUpPositions.length; i++) {
-                    Route route = new Route(robot.pos, map.pickUpPositions[i]);
-
+                for (int i = 0; i < map.boxes.length; i++) {
                     if (!allColors[map.boxes[i].color].known) {
+                        Route route = new Route(robot.pos, map.boxes[i]);
+
                         if (shortestRoute == null || route.length() < shortestRoute.length()) {
                             shortestRoute = new Route(route);
                         }
@@ -265,6 +265,7 @@ public class Main_pathfinding {
                 System.err.println("null route");
             }
 
+            System.out.println(shortestRoute.endDir);
             nextRoute = new Route(shortestRoute);
         }
     }
