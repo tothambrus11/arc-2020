@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8130b49-b510-49dc-91c1-7eaa5ad3d58c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/libraries/jl1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/lib/jl1.0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/out/artifacts/Java_RPI_code_c1_jar/horukk.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/sounds/balra.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/sounds/indulas.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/sounds/jobbra.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bluegree.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/Java_RPI_code_c1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/Java_RPI_code_c1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Prizm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Prizm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606566315868</updated>
-      <workItem from="1606566319048" duration="6714000" />
+      <workItem from="1606566319048" duration="7716000" />
     </task>
     <task id="LOCAL-00001" summary="ImageProcessing jó">
       <created>1606566751078</created>
