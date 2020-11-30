@@ -5,8 +5,9 @@ public class Map {
     String input;
     Box[] boxes = new Box[5];
     DangerZone[] dangerZones = new DangerZone[5 * 5 + 4 + 3];
-    Position[] pickUpPositions = new Position[5];
-    double[] pickUpDirections = new double[5];
+    //Position[] pickUpPositions = new Position[5];
+    //double[] pickUpDirections = new double[5];
+    RobotInterface robotInterface;
 
     Map(String input, int id) {
         this.id = id;
@@ -15,7 +16,19 @@ public class Map {
         getObjects();
         calculateDangerZones();
         getRobot();
-        getPickUpPositions();
+        //getPickUpPositions();
+        getStartPos();
+    }
+
+    Map(String input, int id, RobotInterface robotInterface) {
+        this.id = id;
+        this.input = input;
+        this.robotInterface = robotInterface;
+
+        getObjects();
+        calculateDangerZones();
+        getRobot();
+        //getPickUpPositions();
         getStartPos();
     }
 
@@ -61,15 +74,25 @@ public class Map {
     }
 
     void getRobot() {
-        Main_pathfinding.robot = new Robot(
-                new Position(
-                        (Main_pathfinding.parkingZone.lower_right.x + Main_pathfinding.parkingZone.upper_left.x) / 2,
-                        (Main_pathfinding.parkingZone.lower_right.y + Main_pathfinding.parkingZone.upper_left.y) / 2
-                )
-        );
+        if (robotInterface == null) {
+            Main_pathfinding.robot = new Robot(
+                    new Position(
+                            (Main_pathfinding.parkingZone.lower_right.x + Main_pathfinding.parkingZone.upper_left.x) / 2,
+                            (Main_pathfinding.parkingZone.lower_right.y + Main_pathfinding.parkingZone.upper_left.y) / 2
+                    )
+            );
+        } else {
+            Main_pathfinding.robot = new Robot(
+                    new Position(
+                            (Main_pathfinding.parkingZone.lower_right.x + Main_pathfinding.parkingZone.upper_left.x) / 2,
+                            (Main_pathfinding.parkingZone.lower_right.y + Main_pathfinding.parkingZone.upper_left.y) / 2
+                    ), robotInterface
+            );
+        }
+
     }
 
-    void getPickUpPositions() {
+    /*void getPickUpPositions() {
         for (int i = 0; i < 5; i++) {
             int closest;
 
@@ -109,6 +132,7 @@ public class Map {
                             boxes[i].pos.x, boxes[i].pos.y + (3)
                     );
                     pickUpDirections[i] = 0;
+                    boxes[i].pickUpDir = 0;
                     break;
 
                 case 1:
@@ -116,6 +140,7 @@ public class Map {
                             boxes[i].pos.x - (3), boxes[i].pos.y
                     );
                     pickUpDirections[i] = 90;
+                    boxes[i].pickUpDir = 90;
                     break;
 
                 case 2:
@@ -123,6 +148,7 @@ public class Map {
                             boxes[i].pos.x, boxes[i].pos.y - (3)
                     );
                     pickUpDirections[i] = 180;
+                    boxes[i].pickUpDir = 180;
                     break;
 
                 case 3:
@@ -130,10 +156,11 @@ public class Map {
                             boxes[i].pos.x + (3), boxes[i].pos.y
                     );
                     pickUpDirections[i] = 270;
+                    boxes[i].pickUpDir = 270;
                     break;
             }
         }
-    }
+    }*/
 
     void getStartPos() {
         double dx, dy;

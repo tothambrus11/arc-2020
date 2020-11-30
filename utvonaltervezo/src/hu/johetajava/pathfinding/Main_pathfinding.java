@@ -6,19 +6,17 @@ import java.util.ArrayList;
 public class Main_pathfinding {
     //robot params
     final static int robotDInMMs = 270;
-    //TODO adjust robotR on parking
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 15; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
 
-    //map params, TODO read these
-    final static String input1 = "(O,F,N,I)(K,R,M,T)(F,P,H,R)(N,Q,P,S)(Q,N,S,P)(E,H,G,J)";
-    final static String input2 = "(O,F,N,I)(R,L,T,N)(D,K,F,M)(Q,Q,O,S)(L,R,N,T)(E,H,G,J)";
-    final static String input3 = "(O,F,N,I)(G,H,E,J)(O,Q,Q,S)(H,P,F,R)(T,L,R,N)(K,O,M,Q)";
-    final static String input4 = "(O,F,N,I)(M,R,K,T)(R,K,T,M)(F,L,D,N)(G,G,E,I)(Q,Q,O,S)";
-    final static int trueMap = 3;
+    //map params
+    final static String input1 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
+    final static String input2 = "(M,K,K,M)(K,R,I,T)(F,P,H,R)(T,L,R,N)(L,S,N,U)(O,Q,Q,S)";
+    final static String input3 = "(M,K,K,M)(T,O,R,Q)(F,Q,H,S)(U,K,S,M)(K,S,M,U)(P,R,N,T)";
+    final static String input4 = "(M,K,K,M)(N,S,L,U)(U,K,S,M)(K,R,I,T)(F,Q,H,S)(T,N,R,P)";
+    final static int trueMap = 1;
 
-    //TODO check colors with robot
     static int[][] colorsInOrder = new int[][]{
             {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
             {Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE, Colors.ORANGE}
@@ -45,6 +43,7 @@ public class Main_pathfinding {
     static Map map2 = new Map(input2, 2);
     static Map map3 = new Map(input3, 3);
     static Map map4 = new Map(input4, 4);
+    static String[] readMaps = new String[4];
 
     static ArrayList<Map> trueMaps = new ArrayList<>();
 
@@ -63,11 +62,12 @@ public class Main_pathfinding {
         robot.move(nextRoute);
         while (found < 3) {
             getNextRoute();
+            System.out.println(nextRoute.endPos.string());
             robot.move(nextRoute);
             int wrongMap = 0;
             for (Map map : trueMaps) {
-                for (int i = 0; i < map.pickUpPositions.length; i++) {
-                    if (robot.pos.equals(map.pickUpPositions[i])) {
+                for (int i = 0; i < map.boxes.length; i++) {
+                    if (robot.isPickUpFrom(map.boxes[i].pickUpDir, map.boxes[i].pos)) {
                         if (map.id != trueMap) {
                             wrongMap = map.id;
                             break;
@@ -121,18 +121,96 @@ public class Main_pathfinding {
         robot.move(nextRoute);
     }
 
+    public static void run(RobotInterface robotInterface) {
+        //read and calculate maps
+        readMaps = robotInterface.readMaps();
+        map1 = new Map(readMaps[0], 0, robotInterface);
+        map2 = new Map(readMaps[1], 1, robotInterface);
+        map3 = new Map(readMaps[2], 2, robotInterface);
+        map4 = new Map(readMaps[3], 3, robotInterface);
+        trueMaps.add(map1);
+        trueMaps.add(map2);
+        trueMaps.add(map3);
+        trueMaps.add(map4);
 
-    public static void run(RobotInterface robotInterface){
-        boolean isRunning = true;
+        //get and navigate first route
+        getNextRoute();
+        robot.move(nextRoute);
+
+        //while we don't have the 3rd cube
+        while (found < 3) {
+            //get and navigate next route
+            getNextRoute();
+            robot.move(nextRoute);
+
+
+            int wrongMap = 0;
+            for (Map map : trueMaps) {
+                for (int i = 0; i < map.boxes.length; i++) {
+                    if (robot.isPickUpFrom(map.boxes[i].pickUpDir, map.boxes[i].pos)) {
+                        if (!robotInterface.isTrueBox()) {
+                            wrongMap = map.id;
+                            break;
+                        } else {
+                            wrongMap = -1;
+                            map.boxes[i].setColors(robotInterface.positionToCube());
+
+                            allColors[map.boxes[i].color].known = true;
+                            allColors[map.boxes[i].color].boxId = i;
+
+                            if (map.boxes[i].color == nextColor) {
+                                nextColor = map.boxes[i].colorOnTop;
+                                found++;
+                                robotInterface.goToEdge();
+                            }
+                        }
+                    }
+                }
+                if (wrongMap != 0) {
+                    break;
+                }
+            }
+
+            if (wrongMap != 0) {
+                if (wrongMap == -1) {
+                    ArrayList<Map> tempMap = new ArrayList<>();
+                    for (Map map : trueMaps) {
+                        if (map.id == trueMap) {
+                            tempMap.add(map);
+                            break;
+                        }
+                    }
+
+                    trueMaps = new ArrayList<>();
+                    trueMaps.addAll(tempMap);
+                } else {
+                    ArrayList<Map> tempTrueMaps = new ArrayList<>();
+                    for (Map map : trueMaps) {
+                        if (map.id != wrongMap) {
+                            tempTrueMaps.add(map);
+                        }
+                    }
+
+                    trueMaps = new ArrayList<>();
+                    trueMaps.addAll(tempTrueMaps);
+                }
+            }
+        }
+
+        getNextRoute();
+        robot.move(nextRoute);
+        getNextRoute();
+        robot.move(nextRoute);
+
+
+        /*boolean isRunning = true;
         while(isRunning){
             robotInterface.go(4);
             robotInterface.turn(0.25); // 90 fok balra
             robotInterface.turn(-0.25); // 90 fok jobbra
             robotInterface.positionToCube(); // Mielőtt ezt lefuttatjuk, a kocka szélétől kb 2 unitra kell legyen a robot. Visszaadja a kockák színét.
             robotInterface.goToEdge(); // Az előbbi függvény után le kell futtatni ezt is, hogy odamenjünk közel a kockához kockafelvételre
-
-
-        }
+        }*/
     }
 
     private static void createFrame() {
@@ -168,15 +246,14 @@ public class Main_pathfinding {
         } else if (robot.pos.equals(homePos)) {
             nextRoute = new Route(robot.pos, startPos);
         } else if (isKnown(nextColor)) {
-            Position posTo = new Position(Main_pathfinding.trueMaps.get(0).pickUpPositions[allColors[nextColor].boxId]);
-            nextRoute = new Route(robot.pos, posTo);
+            nextRoute = new Route(robot.pos, trueMaps.get(0).boxes[allColors[nextColor].boxId]);
         } else {
             Route shortestRoute = null;
             for (Map map : trueMaps) {
-                for (int i = 0; i < map.pickUpPositions.length; i++) {
-                    Route route = new Route(robot.pos, map.pickUpPositions[i]);
-
+                for (int i = 0; i < map.boxes.length; i++) {
                     if (!allColors[map.boxes[i].color].known) {
+                        Route route = new Route(robot.pos, map.boxes[i]);
+
                         if (shortestRoute == null || route.length() < shortestRoute.length()) {
                             shortestRoute = new Route(route);
                         }
@@ -188,6 +265,7 @@ public class Main_pathfinding {
                 System.err.println("null route");
             }
 
+            System.out.println(shortestRoute.endDir);
             nextRoute = new Route(shortestRoute);
         }
     }

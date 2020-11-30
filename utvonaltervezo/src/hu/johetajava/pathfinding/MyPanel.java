@@ -180,10 +180,10 @@ public class MyPanel extends JComponent {
 
             //paint pick up positions
             g.setColor(Color.BLUE);
-            for (int i = 0; i < map.pickUpPositions.length; i++) {
+            for (int i = 0; i < map.boxes.length; i++) {
                 g.fillOval(
-                        (int) (map.pickUpPositions[i].x * 115 / 4 - 5 + 50 / 4),
-                        (int) (map.pickUpPositions[i].y * 115 / 4 - 5 + 50 / 4),
+                        (int) (map.boxes[i].pickUpPos.x * 115 / 4 - 5 + 50 / 4),
+                        (int) (map.boxes[i].pickUpPos.y * 115 / 4 - 5 + 50 / 4),
                         10, 10
                 );
             }
