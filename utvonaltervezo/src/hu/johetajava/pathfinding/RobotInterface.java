@@ -11,4 +11,5 @@ public abstract class RobotInterface {
 
     public abstract void goToEdge();
 
+    public abstract String[] readMaps();
 }

@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Main_pathfinding {
-    //TODO create external function
-
     //robot params
     final static int robotDInMMs = 270;
     //TODO adjust robotR on parking
