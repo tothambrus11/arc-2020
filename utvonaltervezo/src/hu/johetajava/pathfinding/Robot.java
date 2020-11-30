@@ -37,6 +37,8 @@ public class Robot {
                 }
             }
         }
+
+        //System.out.println(dir);
     }
 
     void moveTo(Position position) {
@@ -102,8 +104,7 @@ public class Robot {
 
         boolean right = turnInDegrees > 0;
 
-        if(robotInterface == null){
-            System.out.println(turnInDegrees/360);
+        if (robotInterface == null) {
             while (dir != dirTo) {
                 if (right) {
                     dir -= turnSpeed;
@@ -123,8 +124,27 @@ public class Robot {
                 Main_pathfinding.refreshFrame();
             }
         } else {
-            robotInterface.turn(turnInDegrees/360);
+            robotInterface.turn(turnInDegrees / 360);
             dir = dirTo;
+        }
+    }
+
+    boolean isPickUpFrom(Position cubePosition) {
+        switch ((int) dir) {
+            case 0:
+                return cubePosition.equals(new Position(pos.x, pos.y - 3));
+
+            case 90:
+                return cubePosition.equals(new Position(pos.x + 3, pos.y));
+
+            case 180:
+                return cubePosition.equals(new Position(pos.x, pos.y + 3));
+
+            case 270:
+                return cubePosition.equals(new Position(pos.x - 3, pos.y));
+
+            default:
+                return false;
         }
     }
 }

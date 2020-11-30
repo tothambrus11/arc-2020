@@ -11,11 +11,11 @@ public class Main_pathfinding {
     final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
 
     //map params
-    final static String input1 = "(O,F,N,I)(K,R,M,T)(F,P,H,R)(N,Q,P,S)(Q,N,S,P)(E,H,G,J)";
-    final static String input2 = "(O,F,N,I)(R,L,T,N)(D,K,F,M)(Q,Q,O,S)(L,R,N,T)(E,H,G,J)";
-    final static String input3 = "(O,F,N,I)(G,H,E,J)(O,Q,Q,S)(H,P,F,R)(T,L,R,N)(K,O,M,Q)";
-    final static String input4 = "(O,F,N,I)(M,R,K,T)(R,K,T,M)(F,L,D,N)(G,G,E,I)(Q,Q,O,S)";
-    final static int trueMap = 3;
+    final static String input1 = "(E,E,F,B)(T,L,R,N)(Q,H,S,J)(K,Q,M,S)(G,P,I,R)(M,E,O,G)";
+    final static String input2 = "(E,E,F,B)(S,M,Q,O)(K,Q,I,S)(P,G,R,I)(N,D,L,F)(M,R,O,T)";
+    final static String input3 = "(E,E,F,B)(M,E,O,G)(S,H,Q,J)(T,K,R,M)(M,R,K,T)(N,Q,P,S)";
+    final static String input4 = "(E,E,F,B)(P,G,R,I)(N,R,L,T)(M,D,O,F)(J,N,H,P)(Q,M,S,O)";
+    final static int trueMap = 4;
 
     //TODO check colors with robot
     static int[][] colorsInOrder = new int[][]{
@@ -66,8 +66,8 @@ public class Main_pathfinding {
             robot.move(nextRoute);
             int wrongMap = 0;
             for (Map map : trueMaps) {
-                for (int i = 0; i < map.pickUpPositions.length; i++) {
-                    if (robot.pos.equals(map.pickUpPositions[i])) {
+                for (int i = 0; i < map.boxes.length; i++) {
+                    if (robot.isPickUpFrom(map.boxes[i].pos)) {
                         if (map.id != trueMap) {
                             wrongMap = map.id;
                             break;
