@@ -5,12 +5,21 @@ public class Robot {
     double dir;
     int speed;
     double turnSpeed;
+    RobotInterface robotInterface;
 
     Robot(Position position) {
         pos = position;
         dir = 0;
         speed = Main_pathfinding.robotSpeed;
         turnSpeed = Main_pathfinding.robotTurnSpeed;
+    }
+
+    Robot(Position position, RobotInterface robotInterface) {
+        pos = position;
+        dir = 0;
+        speed = Main_pathfinding.robotSpeed;
+        turnSpeed = Main_pathfinding.robotTurnSpeed;
+        this.robotInterface = robotInterface;
     }
 
     void move(Route route) {

@@ -4,14 +4,15 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Main_pathfinding {
+    final static boolean debug = true;
+
     //robot params
     final static int robotDInMMs = 270;
-    //TODO adjust robotR on parking
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 15; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
 
-    //map params, TODO read these
+    //map params
     final static String input1 = "(O,F,N,I)(K,R,M,T)(F,P,H,R)(N,Q,P,S)(Q,N,S,P)(E,H,G,J)";
     final static String input2 = "(O,F,N,I)(R,L,T,N)(D,K,F,M)(Q,Q,O,S)(L,R,N,T)(E,H,G,J)";
     final static String input3 = "(O,F,N,I)(G,H,E,J)(O,Q,Q,S)(H,P,F,R)(T,L,R,N)(K,O,M,Q)";
@@ -45,6 +46,7 @@ public class Main_pathfinding {
     static Map map2 = new Map(input2, 2);
     static Map map3 = new Map(input3, 3);
     static Map map4 = new Map(input4, 4);
+    static String[] readMaps = new String[4];
 
     static ArrayList<Map> trueMaps = new ArrayList<>();
 
@@ -121,18 +123,31 @@ public class Main_pathfinding {
         robot.move(nextRoute);
     }
 
-
     public static void run(RobotInterface robotInterface){
-        boolean isRunning = true;
+        //read and calculate maps
+        readMaps = robotInterface.readMaps();
+        map1 = new Map(readMaps[0], 0, robotInterface);
+        map2 = new Map(readMaps[1], 1, robotInterface);
+        map3 = new Map(readMaps[2], 2, robotInterface);
+        map4 = new Map(readMaps[3], 3, robotInterface);
+        trueMaps.add(map1);
+        trueMaps.add(map2);
+        trueMaps.add(map3);
+        trueMaps.add(map4);
+
+        //get first route
+        getNextRoute();
+
+
+
+        /*boolean isRunning = true;
         while(isRunning){
             robotInterface.go(4);
             robotInterface.turn(0.25); // 90 fok balra
             robotInterface.turn(-0.25); // 90 fok jobbra
             robotInterface.positionToCube(); // Mielőtt ezt lefuttatjuk, a kocka szélétől kb 2 unitra kell legyen a robot. Visszaadja a kockák színét.
             robotInterface.goToEdge(); // Az előbbi függvény után le kell futtatni ezt is, hogy odamenjünk közel a kockához kockafelvételre
-
-
-        }
+        }*/
     }
 
     private static void createFrame() {
