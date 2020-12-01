@@ -141,7 +141,7 @@ public class Chassis {
     }
 
 
-    public CubePosInfo positionSidewaysFullProcedure() throws InterruptedException, IOException, NoCubeFoundException {
+    public CubePosInfo positionSidewaysFullProcedure() {
         chassis.goToEdgePrecise();
         go(-0.9f, 100, true);
 

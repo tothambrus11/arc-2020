@@ -10,20 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64d2dfb5-7c9c-4f85-b1c5-4a019d9729e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/sounds_artifact.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../image-processing/h.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../image-processing/ynl.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/green2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/s.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/sar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image-processing/sarr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Arm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Chassis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/RobotCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/RobotCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../image-processing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ColorInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image-processing/green.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ColorInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ColorInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../image-processing/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DistFromLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DistFromLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Main_pathfinding.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Main_pathfinding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/MyPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Position.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Robot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Robot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/RobotInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/RobotInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Route.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,13 +93,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,7 +123,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606570029498</updated>
       <workItem from="1606570030777" duration="417000" />
-      <workItem from="1606570546738" duration="29894000" />
+      <workItem from="1606570546738" duration="31819000" />
+      <workItem from="1606821973152" duration="6692000" />
     </task>
     <task id="LOCAL-00001" summary="Jar buildelések rendben">
       <created>1606573339060</created>
@@ -181,6 +191,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="435" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606587738339" />
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser" timestamp="1606768749820">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="70" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1606768749820" />
     <state x="404" y="154" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1606582439010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -205,26 +219,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="480" y="239" key="DetectedRootsChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1606570221762" />
-    <state x="463" y="73" key="FileChooserDialogImpl" timestamp="1606588187995">
+    <state x="463" y="73" key="FileChooserDialogImpl" timestamp="1606770061199">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="73" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606588187995" />
-    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1606762750150">
+    <state x="463" y="73" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606770061199" />
+    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1606770081504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
-    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1606762750150">
+    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606770081504" />
+    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1606770081504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
-    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1606762750150">
+    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606770081504" />
+    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1606770081503">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
-    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1606762750150">
+    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606770081503" />
+    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1606770081504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606762750150" />
+    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606770081504" />
+    <state width="661" height="223" key="GridCell.Tab.1.bottom" timestamp="1606768176147">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606768176147" />
+    <state width="661" height="223" key="GridCell.Tab.1.center" timestamp="1606768176147">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1606768176147" />
+    <state width="661" height="223" key="GridCell.Tab.1.left" timestamp="1606768176147">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1606768176147" />
+    <state width="661" height="223" key="GridCell.Tab.1.right" timestamp="1606768176147">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1606768176147" />
     <state x="306" y="68" width="1060" height="591" key="NewModule_or_Project.wizard" timestamp="1606570177005">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -249,13 +279,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="538" y="85" key="ftp.server.browser/0.0.1366.728@0.0.1366.728" timestamp="1606571376905" />
-    <state x="272" y="47" key="new project wizard" timestamp="1606570077082">
+    <state x="272" y="47" key="new project wizard" timestamp="1606770079811">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="272" y="47" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1606570077082" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606762747021">
+    <state x="272" y="47" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1606770079811" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606826090931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606762747021" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606826090931" />
   </component>
 </project>

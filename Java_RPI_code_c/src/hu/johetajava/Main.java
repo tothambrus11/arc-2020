@@ -1,7 +1,9 @@
 package hu.johetajava;
 
 import com.hopding.jrpicam.RPiCamera;
+import hu.johetajava.imageProcessing.CubePosInfo;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
+import hu.johetajava.pathfinding.RobotInterface;
 import javazoom.jl.player.Player;
 
 import javax.imageio.ImageIO;
@@ -32,10 +34,10 @@ public class Main {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-               if(!isArmCalibration) {
-                   arm.posOffset = 0;
-                   arm.setPos(0f, true);
-               }
+                if (!isArmCalibration) {
+                    arm.posOffset = 0;
+                    arm.setPos(0f, true);
+                }
                 stopped = true;
                 prizm.serialPort.closePort();
                 prizm.serialPort.openPort();
@@ -63,28 +65,7 @@ public class Main {
             return;
         }
 
-        /* Main_pathfinding.run(new RobotInterface() {
-            @Override
-            public void go(double units) {
-                chassis.go((float) units, 200, true);
-            }
 
-            @Override
-            public void turn(double fullRotations) {
-                chassis.turnRotations((float) fullRotations, 80, true);
-            }
-
-            @Override
-            public CubePosInfo positionToCube() {
-                try {
-                    return chassis.positionSidewaysFullProcedure();
-                } catch (InterruptedException | IOException | NoCubeFoundException e) {
-                    e.printStackTrace();
-                }
-
-                return null;
-            }
-        });*/
 
 
        /* chassis.goToEdgePrecise();
@@ -162,36 +143,20 @@ public class Main {
 */
     }
 
-    static void play(String fileName){
-        new Thread(()->{
-            try{
+    static void play(String fileName) {
+        new Thread(() -> {
+            try {
                 FileInputStream fis = new FileInputStream(fileName + ".mp3");
                 Player playMP3 = new Player(fis);
 
                 playMP3.play();
-            }  catch(Exception e){
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }).start();
     }
 
     static void onStart() throws InterruptedException, IOException {
-        chassis.goToEdgePrecise();
-
-        chassis.goToEdge(30);
-
-        chassis.go(-2.5f, 200, true);
-
-        String[] codes;
-
-        do {
-            BufferedImage image = robotCamera.takePicture();
-            codes = QRCodeScanner.decodeQRCodesNoCrop(image);
-            System.out.println("Trying...");
-        } while (codes.length != 4);
-        System.out.println(Arrays.deepToString(codes));
-
-        chassis.go(-0.369f, 40, true);
 
     }
 
@@ -232,5 +197,60 @@ public class Main {
         average.setData(raster);
 
         return average;
+    }
+
+    class MyRobotInterface extends RobotInterface {
+
+        @Override
+        public void go(double units) {
+            chassis.go((float) units, 200, true);
+        }
+
+        @Override
+        public void turn(double fullRotations) {
+            chassis.turnRotations((float) fullRotations, 80, true);
+        }
+
+        @Override
+        public CubePosInfo positionToCube() {
+            return chassis.positionSidewaysFullProcedure();
+        }
+
+        @Override
+        public void goToEdge() {
+            chassis.goToEdgePrecise();
+        }
+
+        @Override
+        public String[] readMaps() {
+            chassis.goToEdgePrecise();
+
+            chassis.goToEdge(30);
+
+            chassis.go(-2.5f, 200, true);
+
+            String[] codes = null;
+
+            do {
+                BufferedImage image = null;
+                try {
+                    image = robotCamera.takePicture();
+                    codes = QRCodeScanner.decodeQRCodesNoCrop(image);
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Trying...");
+            } while (codes == null || codes.length != 4);
+            System.out.println(Arrays.deepToString(codes));
+
+            chassis.go(-0.369f, 40, true);
+
+            return codes;
+        }
+
+        @Override
+        public boolean isTrueBox() {
+            return true; // TODO ADD ultrasonic sensor
+        }
     }
 }

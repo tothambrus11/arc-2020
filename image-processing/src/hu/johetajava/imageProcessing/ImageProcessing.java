@@ -25,7 +25,7 @@ public class ImageProcessing {
 
     public static void main(String[] args) throws IOException, NoCubeFoundException {
         isDebug = false;
-        File f = new File("ynl.jpg");
+        File f = new File("sarr.jpg");
         var img = ImageIO.read(f);
         CubePosInfo info = cubeInfoOnPicture(img);
     }
@@ -46,14 +46,14 @@ public class ImageProcessing {
     public static CubePosInfo cubeInfoOnPicture(BufferedImage img) throws NoCubeFoundException {
         System.out.println("\n  CUBE");
         var cubeEntry = getColorBestEntry(img.getHeight() / 2, img);
-        System.out.println("      === "+cubeEntry.getKey());
+        System.out.println("      === " + cubeEntry.getKey());
         System.out.println("\n  BOX");
-        var boxEntry = getColorBestEntry(img.getHeight() - 1, img);
+        var boxEntry = getColorBestEntry(img.getHeight() * 4 / 5, img);
 
         double posPx = (double) cubeEntry.getValue().pixelSum / (double) cubeEntry.getValue().pixelCount;
         double posErrorPx = posPx - img.getWidth() / 2d;
 
-        if (cubeEntry.getKey() == MyColor.NONE || Math.abs(cubeEntry.getValue().pixelCount - CUBE_IN_PX) < 0.3 * CUBE_IN_PX) { // Rossz kép, próbáljuk újra...
+        if (cubeEntry.getKey() == MyColor.NONE || Math.abs(cubeEntry.getValue().pixelCount - CUBE_IN_PX) > 0.2 * CUBE_IN_PX) { // Rossz kép, próbáljuk újra...
             throw new NoCubeFoundException();
         }
         return new CubePosInfo(
@@ -136,9 +136,9 @@ public class ImageProcessing {
                 return MyColor.RED;
             } else if (((hue >= 0 && hue < 45) || hue >= 349) && saturation >= 0.45 && brightness > 0.32) {
                 return MyColor.ORANGE;
-            } else if (hue >= 45 && hue < 80 && saturation > 0.5 && brightness > 0.5) {
+            } else if ((hue >= 45 && hue < 100 && saturation > 0.2 && brightness > 0.45) || (saturation < 0.3 && brightness > 0.6 && hue < 230 && hue >45)) {
                 return MyColor.YELLOW;
-            } else if (hue >= 80 && hue < 185 && saturation >= 0.2) {
+            } else if (hue >= 100 && hue < 185 && saturation >= 0.2) {
                 return MyColor.GREEN;
             } else if (hue >= 210 && hue < 270 && saturation > 0.25 && brightness > 0.32) {
                 return MyColor.BLUE;
