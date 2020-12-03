@@ -163,6 +163,8 @@ public class Main_pathfinding {
                                 map.boxes[i].setColors(robotInterface.positionToCube());
                                 allColors[map.boxes[i].color].known = true;
                                 allColors[map.boxes[i].color].boxId = i;
+                            } else {
+                                robotInterface.positionToCube();
                             }
 
                             if (map.boxes[i].color == nextColor) {
