@@ -5,17 +5,18 @@ import java.util.ArrayList;
 
 public class Main_pathfinding {
     //robot params
-    final static int robotDInMMs = 270;
+    final static int robotDInMMs = 390;
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 15; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
 
-    //map params
-    final static String input1 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
-    final static String input2 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
-    final static String input3 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
-    final static String input4 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
-    final static int trueMap = 2;
+    //map params (L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)
+    final static String input1 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
+    final static String input2 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
+    final static String input3 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
+    final static String input4 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
+
+    final static int trueMap = 1;
 
     static int[][] colorsInOrder = new int[][]{
             {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
@@ -59,7 +60,12 @@ public class Main_pathfinding {
         getNextRoute();
         createFrame();
 
-        robot.move(nextRoute);
+        robot.turnTo(startPos);
+        robot.dir += 180;
+
+        robot.moveToWithoutTurn(startPos);
+
+
         while (found < 3) {
             getNextRoute();
             robot.move(nextRoute);
@@ -133,8 +139,10 @@ public class Main_pathfinding {
         trueMaps.add(map4);
 
         //get and navigate first route
-        getNextRoute();
-        robot.move(nextRoute);
+        robot.turnTo(startPos);
+        robot.dir += 180;
+
+        robot.moveToWithoutTurn(startPos);
 
         //while we don't have the 3rd cube
         while (found < 3) {
