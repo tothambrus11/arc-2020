@@ -159,10 +159,11 @@ public class Main_pathfinding {
                             break;
                         } else {
                             wrongMap = -1;
-                            map.boxes[i].setColors(robotInterface.positionToCube());
-
-                            allColors[map.boxes[i].color].known = true;
-                            allColors[map.boxes[i].color].boxId = i;
+                            if (!allColors[map.boxes[i].color].known) {
+                                map.boxes[i].setColors(robotInterface.positionToCube());
+                                allColors[map.boxes[i].color].known = true;
+                                allColors[map.boxes[i].color].boxId = i;
+                            }
 
                             if (map.boxes[i].color == nextColor) {
                                 nextColor = map.boxes[i].colorOnTop;
