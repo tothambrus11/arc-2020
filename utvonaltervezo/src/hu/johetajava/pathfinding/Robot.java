@@ -96,6 +96,47 @@ public class Robot {
         }
     }
 
+    void moveToWithoutTurn(Position position) {
+        if (position.equals(pos)) {
+            return;
+        }
+
+        if(robotInterface != null){
+            robotInterface.go(-pos.dist(position));
+        }
+
+        pos = new Position(position);
+    }
+
+    void turnTo(Position position){
+        if (position.equals(pos)) {
+            return;
+        }
+
+        double dX = position.x - pos.x;
+        double dY = position.y - pos.y;
+
+        int offSet = 0;
+        if (dX > 0) {
+            offSet = 90;
+        } else if (dX < 0) {
+            offSet = -90;
+        }
+
+        double angle = Math.atan(dY / dX);
+        double dirTo = (angle * 180) / Math.PI + offSet;
+
+        if (dX == 0) {
+            if (dY > 0) {
+                dirTo = 180;
+            } else {
+                dirTo = 0;
+            }
+        }
+
+        dir = dirTo;
+    }
+
     void turnTo(double dirTo) {
         double turnInDegrees = (dir - dirTo) % 360;
         if (turnInDegrees > 180) {

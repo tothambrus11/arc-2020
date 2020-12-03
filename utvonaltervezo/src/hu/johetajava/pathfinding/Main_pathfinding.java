@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Main_pathfinding {
     //robot params
-    final static int robotDInMMs = 350;
+    final static int robotDInMMs = 390;
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 7; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 0.4; //*1000 degrees/s, default: 0.2
 
-    //map params
+    //map params (L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)
     final static String input1 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
     final static String input2 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
     final static String input3 = "(L,G,K,I)(K,R,I,T)(T,I,R,K)(C,K,E,M)(N,Q,P,S)(H,P,F,R)";
@@ -60,10 +60,14 @@ public class Main_pathfinding {
         getNextRoute();
         createFrame();
 
-        robot.move(nextRoute);
+        robot.turnTo(startPos);
+        robot.dir += 180;
+
+        robot.moveToWithoutTurn(startPos);
+
+
         while (found < 3) {
             getNextRoute();
-            System.out.println(nextRoute.endPos.string());
             robot.move(nextRoute);
             int wrongMap = 0;
             for (Map map : trueMaps) {
@@ -135,8 +139,10 @@ public class Main_pathfinding {
         trueMaps.add(map4);
 
         //get and navigate first route
-        getNextRoute();
-        robot.move(nextRoute);
+        robot.turnTo(startPos);
+        robot.dir += 180;
+
+        robot.moveToWithoutTurn(startPos);
 
         //while we don't have the 3rd cube
         while (found < 3) {
@@ -161,8 +167,27 @@ public class Main_pathfinding {
 
                             if (map.boxes[i].color == nextColor) {
                                 nextColor = map.boxes[i].colorOnTop;
-                                found++;
                                 robotInterface.goToEdge();
+
+                                switch (found) {
+                                    case 0:
+                                        robotInterface.pickUpBoxLeft();
+                                        break;
+
+                                    case 1:
+                                        robotInterface.switchBox(false);
+                                        break;
+
+                                    case 2:
+                                        robotInterface.switchBox(true);
+                                        break;
+
+                                    default:
+                                        System.err.println("túl sokadik doboz");
+                                        break;
+                                }
+
+                                found++;
                             }
                         }
                     }
