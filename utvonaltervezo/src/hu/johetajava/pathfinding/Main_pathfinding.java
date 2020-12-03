@@ -12,10 +12,10 @@ public class Main_pathfinding {
 
     //map params
     final static String input1 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
-    final static String input2 = "(M,K,K,M)(K,R,I,T)(F,P,H,R)(T,L,R,N)(L,S,N,U)(O,Q,Q,S)";
-    final static String input3 = "(M,K,K,M)(T,O,R,Q)(F,Q,H,S)(U,K,S,M)(K,S,M,U)(P,R,N,T)";
-    final static String input4 = "(M,K,K,M)(N,S,L,U)(U,K,S,M)(K,R,I,T)(F,Q,H,S)(T,N,R,P)";
-    final static int trueMap = 1;
+    final static String input2 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
+    final static String input3 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
+    final static String input4 = "(M,K,K,M)(R,N,T,P)(H,R,J,T)(M,S,K,U)(U,K,S,M)(O,Q,Q,S)";
+    final static int trueMap = 2;
 
     static int[][] colorsInOrder = new int[][]{
             {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
@@ -62,7 +62,6 @@ public class Main_pathfinding {
         robot.move(nextRoute);
         while (found < 3) {
             getNextRoute();
-            System.out.println(nextRoute.endPos.string());
             robot.move(nextRoute);
             int wrongMap = 0;
             for (Map map : trueMaps) {
@@ -265,7 +264,6 @@ public class Main_pathfinding {
                 System.err.println("null route");
             }
 
-            System.out.println(shortestRoute.endDir);
             nextRoute = new Route(shortestRoute);
         }
     }
