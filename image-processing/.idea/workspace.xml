@@ -2,27 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8130b49-b510-49dc-91c1-7eaa5ad3d58c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/green2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sarr.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../route_visualization/route_visualization.pde" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Arm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Chassis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/QRCodeScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/QRCodeScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/RobotCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_RPI_code_c/src/hu/johetajava/RobotCamera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/DemoView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/ShootBufferedStill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/ShootStill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_RPI_code_c/src/jrpicam/examples/ShootTimelapse.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/green.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/image-processing/hu/johetajava/imageProcessing/ImageProcessing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hu/johetajava/imageProcessing/ImageProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Box.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DistFromLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DistFromLine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DangerZone.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/DangerZone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Main_pathfinding.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Main_pathfinding.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/MyPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/MyPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Position.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Robot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Robot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/RobotInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/RobotInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/out/production/utvonaltervezo/hu/johetajava/pathfinding/Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utvonaltervezo/src/hu/johetajava/pathfinding/Main_pathfinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../utvonaltervezo/src/hu/johetajava/pathfinding/Main_pathfinding.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606566315868</updated>
       <workItem from="1606566319048" duration="14998000" />
-      <workItem from="1606825041757" duration="4128000" />
+      <workItem from="1606825041757" duration="4735000" />
     </task>
     <task id="LOCAL-00001" summary="ImageProcessing jó">
       <created>1606566751078</created>

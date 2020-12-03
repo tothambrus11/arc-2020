@@ -57,12 +57,12 @@ public class QRCodeScanner {
         try {
             Result[] result = new QRCodeMultiReader().decodeMultiple(bitmap, hints);
 
-            System.out.println("RES SIE" + result.length);
+            System.out.println("Found " + result.length + " codes.");
             for (Result res : result) {
                 codes.add(res.getText());
             }
         } catch (NotFoundException e) {
-            System.err.println(e);
+            System.err.println("No QR code found");
         }
 
 

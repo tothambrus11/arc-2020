@@ -53,7 +53,6 @@ public class Chassis {
         prizm.sendMessage(TOPIC_TURN_ROTATIONS, rotations.toString().getBytes());
         prizm.send((byte) ' ', (byte) speed, (byte) (wait ? 1 : 0));
         if (wait) {
-            System.out.println("TR waiting for ok");
             prizm.waitForOk();
         }
     }
@@ -96,7 +95,6 @@ public class Chassis {
         prizm.send(TOPIC_WAIT_FOR_ANY_BUTTON_PRESSED);
         byte leftIsPressed = prizm.readByte();
 
-        System.out.printf("0x%x ", leftIsPressed);
         if (leftIsPressed == 0x12) {
             stopLeft();
             prizm.waitForRightButtonPressed();
@@ -118,13 +116,10 @@ public class Chassis {
     }
 
     void moveSideways(double moveUnits, int speed) {
-        System.out.println("MoveUnits: " + moveUnits);
-        System.out.println("MoveMMs: " + ImageProcessing.unitToMM(moveUnits));
+        System.out.println("Move MMs: " + Math.round(ImageProcessing.unitToMM(moveUnits) * 1000) / 1000d);
         double a = Math.abs(moveUnits) / 2; // Kétszer csináljuk meg a fordulgatást, egyszer hátra, majd mégegyszer előre.
         double alfa = Math.acos((D_IN_UNITS - a) / D_IN_UNITS);
-        System.out.println("alfa: " + alfa);
         float i = (float) (D_IN_UNITS * alfa);
-        System.out.println("I=" + i);
         if (moveUnits < 0) {
             // move left
             goRight(-i, speed, true);
@@ -150,7 +145,7 @@ public class Chassis {
         double mmError = ImageProcessing.unitToMM(info.errorUnits);
 
         while (Math.abs(mmError) >= 10) {
-            System.out.println("Move sideways");
+            System.out.println("Move sideways.");
             chassis.moveSideways(info.errorUnits, 40);
 
             info = robotCamera.getRobotInfoTryHard();
@@ -163,7 +158,6 @@ public class Chassis {
 
         System.out.println("MM ERROR: " + mmError);
         arm.posOffset = arm.mmToArmOffset(mmError);
-        System.out.println("POS OFFSET: " + arm.posOffset);
 
         return info;
     }

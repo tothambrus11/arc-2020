@@ -3,6 +3,7 @@ package hu.johetajava;
 import com.hopding.jrpicam.RPiCamera;
 import hu.johetajava.imageProcessing.CubePosInfo;
 import hu.johetajava.imageProcessing.NoCubeFoundException;
+import hu.johetajava.pathfinding.Main_pathfinding;
 import hu.johetajava.pathfinding.RobotInterface;
 import javazoom.jl.player.Player;
 
@@ -75,7 +76,7 @@ public class Main {
         System.exit(0);
 */
         //ImageProcessing.takePicture();
-
+/*
         chassis.positionSidewaysFullProcedure();
         chassis.goToEdgePrecise();
         arm.catchCubeLeft();
@@ -86,8 +87,13 @@ public class Main {
 
         arm.catchCubeRight();
         arm.swapCubesToLeft();
+*/
 
+        Main_pathfinding.run(new MyRobotInterface());
         System.exit(1);
+
+
+
 
         onStart();
         chassis.turnRotations(0.5f, 80, true);
@@ -104,10 +110,7 @@ public class Main {
 
         chassis.go(-1f, 40, true);
 
-        //Thread.sleep(500);
         chassis.turnRotations(-0.5f, 100, true);
-        System.out.println("TR finished");
-        //Thread.sleep(500);
 
         chassis.go(2f, 200, true);
         chassis.positionSidewaysFullProcedure();
@@ -115,32 +118,6 @@ public class Main {
 
         arm.swapCubesToLeft();
 
-        /*arm.setPos(1100f, true);
-        arm.down(true);
-        arm.closeLeft(true);
-        arm.up(true);
-        arm.setPos(0f, true);
-        arm.setPos(1100f, true);
-        arm.down(true);
-        arm.closeRight(true);
-        arm.setPos((float) elt, true);
-        arm.up(true);
-        arm.setPos(0f, true);
-
-
-        arm.closeLeft(true);
-        arm.setPos(-1100f, true);
-        arm.down(true);
-        arm.closeRight(true);
-        arm.up(true);
-        arm.setPos(0f, true);
-        arm.setPos(-1100f, true);bran
-        arm.down(true);
-        arm.closeLeft(true);
-        arm.setPos((float) -elt, true);
-        arm.up(true);
-        arm.setPos(0f, true);
-*/
     }
 
     static void play(String fileName) {
@@ -199,30 +176,45 @@ public class Main {
         return average;
     }
 
-    class MyRobotInterface extends RobotInterface {
+    static int counter = 0;
+    static class MyRobotInterface extends RobotInterface {
 
         @Override
         public void go(double units) {
+            if(counter < 2){
+                counter++;
+                return;
+            }
+            System.out.println("[COMMAND] GO _" + units + "_ units");
             chassis.go((float) units, 200, true);
         }
 
         @Override
         public void turn(double fullRotations) {
+            if(counter < 2){
+                counter++;
+                return;
+            }
+            System.out.println("[COMMAND] TURN _" + fullRotations + "_ rotations");
             chassis.turnRotations((float) fullRotations, 80, true);
         }
 
         @Override
         public CubePosInfo positionToCube() {
+            System.out.println("[COMMAND] POSITION TO CUBE");
             return chassis.positionSidewaysFullProcedure();
         }
 
         @Override
         public void goToEdge() {
+            System.out.println("[COMMAND] GO TO EDGE");
             chassis.goToEdgePrecise();
         }
 
         @Override
         public String[] readMaps() {
+            System.out.println("[COMMAND] READ MAPS");
+
             chassis.goToEdgePrecise();
 
             chassis.goToEdge(30);
@@ -245,6 +237,9 @@ public class Main {
 
             chassis.go(-0.369f, 40, true);
 
+            chassis.turnRotations(0.5f, 80, true);
+
+            chassis.go(.5f, 200, true);
             return codes;
         }
 
@@ -252,5 +247,6 @@ public class Main {
         public boolean isTrueBox() {
             return true; // TODO ADD ultrasonic sensor
         }
+
     }
 }

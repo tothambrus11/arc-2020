@@ -102,9 +102,7 @@ public class Arm {
         prizm.sendMessage(TOPIC_ARM_POS, pos.toString().getBytes());
         prizm.send((byte) ' ', (byte) (wait ? 1 : 0));
         if (wait) {
-            System.out.println("waiting for ok...");
             prizm.waitForOk(50);
-            System.out.println("OK received");
         }
     }
 
@@ -122,6 +120,7 @@ public class Arm {
 
         setAbsolutePos(0f, false);
     }
+
 
     public void swapCubesToRight() {
         chassis.go(-0.06f, 20, false);

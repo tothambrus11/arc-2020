@@ -40,14 +40,12 @@ public class RobotCamera {
     public CubePosInfo getRobotInfoTryHard() {
         CubePosInfo info = null;
 
-        boolean lights = true;
         do {
             try {
-                System.out.println("<<<<<<<<<<<<<<< WIT L " + lights + "\n");
-                info = ImageProcessing.cubeInfoOnPicture(takePicture(lights));
+                info = ImageProcessing.cubeInfoOnPicture(takePicture());
             } catch (NoCubeFoundException | IOException | InterruptedException e) {
                 e.printStackTrace();
-                System.out.println("\n=== NO CUBE FOUND");
+                System.out.println("\n=== NO CUBE FOUND. Retrying...");
                 continue;
             }
             break;
