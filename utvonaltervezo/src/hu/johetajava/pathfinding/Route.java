@@ -408,12 +408,12 @@ public class Route {
 
     boolean noCross() {
         if (stops.size() > 0) {
-            if (whereToAddStop(startPos, stops.get(0)) != null) {
+            if (whereToAddStop(startPos, stops.get(0)) != null || stops.get(0).inDanger()) {
                 return false;
             }
 
             for (int i = 1; i < stops.size(); i++) {
-                if (whereToAddStop(stops.get(i - 1), stops.get(i)) != null) {
+                if (whereToAddStop(stops.get(i - 1), stops.get(i)) != null || stops.get(i).inDanger()) {
                     return false;
                 }
             }

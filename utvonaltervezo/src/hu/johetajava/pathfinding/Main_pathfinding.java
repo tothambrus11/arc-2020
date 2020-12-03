@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Main_pathfinding {
     //robot params
-    final static int robotDInMMs = 390;
+    final static int robotDInMMs = 360;
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 15; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 0.9; //*1000 degrees/s, default: 0.2
@@ -19,8 +19,8 @@ public class Main_pathfinding {
     final static int trueMap = 1;
 
     static int[][] colorsInOrder = new int[][]{
-            {Colors.ORANGE, Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE},
-            {Colors.GREEN, Colors.RED, Colors.YELLOW, Colors.BLUE, Colors.ORANGE}
+            {Colors.ORANGE, Colors.GREEN, Colors.YELLOW, Colors.RED, Colors.BLUE},
+            {Colors.RED, Colors.ORANGE, Colors.BLUE, Colors.YELLOW, Colors.GREEN}
     };
     static Colors[] allColors = new Colors[]{
             new Colors(Colors.BLUE),
@@ -57,13 +57,13 @@ public class Main_pathfinding {
         trueMaps.add(map3);
         trueMaps.add(map4);
 
-        getNextRoute();
         createFrame();
+
 
         robot.turnTo(startPos);
         robot.dir += 180;
 
-        robot.moveToWithoutTurn(startPos);
+        robot.pos = new Position(startPos);
 
 
         while (found < 3) {
@@ -138,18 +138,17 @@ public class Main_pathfinding {
         trueMaps.add(map3);
         trueMaps.add(map4);
 
-        //get and navigate first route
+        //adjust pos and dir
         robot.turnTo(startPos);
         robot.dir += 180;
 
-        robot.moveToWithoutTurn(startPos);
+        robot.pos = new Position(startPos);
 
         //while we don't have the 3rd cube
         while (found < 3) {
             //get and navigate next route
             getNextRoute();
             robot.move(nextRoute);
-
 
             int wrongMap = 0;
             for (Map map : trueMaps) {

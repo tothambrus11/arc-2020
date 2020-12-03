@@ -24,6 +24,8 @@ public class Position {
     }
 
     boolean inDanger() {
+        if (x < 2 || x > 18 || y < 2 || y > 18) return true;
+
         for (Map map : Main_pathfinding.trueMaps) {
             for (DangerZone dangerZone : map.dangerZones) {
                 if (dist(dangerZone.center) <= Main_pathfinding.robotR) return true;
