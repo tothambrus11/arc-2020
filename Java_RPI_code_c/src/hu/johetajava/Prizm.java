@@ -11,6 +11,7 @@ public class Prizm {
     public static final byte TOPIC_LED_STATE = 4;
     public static final byte TOPIC_WAIT_FOR_LEFT_BUTTON_PRESSED = 5;
     public static final byte TOPIC_WAIT_FOR_RIGHT_BUTTON_PRESSED = 6;
+    public static final byte TOPIC_READ_SENSOR_DATA = 15;
 
     public Scanner scanner;
 
@@ -93,4 +94,18 @@ public class Prizm {
         serialPort.readBytes(buffer, 1);
         return buffer[0];
     }
+
+    SensorResponse readSensorData() {
+        send(TOPIC_READ_SENSOR_DATA);
+        int state = readByte();
+        SensorResponse sr = new SensorResponse();
+        sr.leftCube = state == 1 || state == 3;
+        sr.rightCube = state == 2 || state == 3;
+        return sr;
+    }
+}
+
+class SensorResponse {
+    boolean leftCube;
+    boolean rightCube;
 }

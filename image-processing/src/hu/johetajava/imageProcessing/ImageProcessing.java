@@ -132,7 +132,7 @@ public class ImageProcessing {
             System.out.print("    \t  " + (hue / 360 * 240) + "; " + saturation * 240 + "; " + brightness * 240 + "; -- " + hue + "; " + saturation + "; " + brightness);
         }
         if (brightness <= 1 && brightness > 0.2) {
-            if (hue >= 315 && hue < 349 && saturation >= 0.2 && brightness > 0.3) {
+            if (hue >= 315 && hue < 349 && saturation >= 0.1 && brightness > 0.3) {
                 return MyColor.RED;
             } else if (((hue >= 0 && hue < 45) || hue >= 349) && saturation >= 0.45 && brightness > 0.32) {
                 return MyColor.ORANGE;

@@ -93,8 +93,6 @@ public class Main {
         System.exit(1);
 
 
-
-
         onStart();
         chassis.turnRotations(0.5f, 80, true);
         chassis.go(5f, 200, true);
@@ -177,24 +175,17 @@ public class Main {
     }
 
     static int counter = 0;
+
     static class MyRobotInterface extends RobotInterface {
 
         @Override
         public void go(double units) {
-            if(counter < 2){
-                counter++;
-                return;
-            }
             System.out.println("[COMMAND] GO _" + units + "_ units");
             chassis.go((float) units, 200, true);
         }
 
         @Override
         public void turn(double fullRotations) {
-            if(counter < 2){
-                counter++;
-                return;
-            }
             System.out.println("[COMMAND] TURN _" + fullRotations + "_ rotations");
             chassis.turnRotations((float) fullRotations, 80, true);
         }
@@ -235,17 +226,32 @@ public class Main {
             } while (codes == null || codes.length != 4);
             System.out.println(Arrays.deepToString(codes));
 
-            chassis.go(-0.369f, 40, true);
+            chassis.go(-0.869f, 40, true);
 
-            chassis.turnRotations(0.5f, 80, true);
+            //chassis.turnRotations(0.5f, 80, true);
 
-            chassis.go(.5f, 200, true);
             return codes;
         }
 
         @Override
         public boolean isTrueBox() {
             return true; // TODO ADD ultrasonic sensor
+        }
+
+        @Override
+        public void pickUpBoxLeft() {
+            arm.catchCubeLeft();
+            chassis.go(-0.9f, 100, true);
+        }
+
+        @Override
+        public void switchBox(boolean isLeft) {
+            if (isLeft) {
+                arm.swapCubesToLeft();
+            } else {
+                arm.swapCubesToRight();
+            }
+            chassis.go(-0.9f, 100, true);
         }
 
     }

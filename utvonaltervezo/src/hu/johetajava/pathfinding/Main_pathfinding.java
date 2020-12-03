@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Main_pathfinding {
     //robot params
-    final static int robotDInMMs = 390;
+    final static int robotDInMMs = 360;
     static double robotR = (double) robotDInMMs / (2 * 115);
     final static int robotSpeed = 7; //*0.001 tile/s, default: 7
     final static double robotTurnSpeed = 0.4; //*1000 degrees/s, default: 0.2
@@ -142,7 +142,7 @@ public class Main_pathfinding {
         robot.turnTo(startPos);
         robot.dir += 180;
 
-        robot.moveToWithoutTurn(startPos);
+        robot.pos = new Position(startPos);
 
         //while we don't have the 3rd cube
         while (found < 3) {
