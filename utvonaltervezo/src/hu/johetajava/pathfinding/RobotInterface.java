@@ -27,5 +27,7 @@ public abstract class RobotInterface {
     //innen tudjuk, hogy igazi-e az a map amin a jelenlegi pozíciónk előtt van egy doboz
     public abstract boolean isTrueBox();
 
-    public abstract void pickUpBox(boolean isLeft);
+    public abstract void pickUpBoxLeft();
+
+    public abstract void switchBox(boolean isLeft); //ha a bal oldalra veszi fel az újat akkor true
 }

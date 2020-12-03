@@ -167,8 +167,27 @@ public class Main_pathfinding {
 
                             if (map.boxes[i].color == nextColor) {
                                 nextColor = map.boxes[i].colorOnTop;
-                                found++;
                                 robotInterface.goToEdge();
+
+                                switch (found) {
+                                    case 0:
+                                        robotInterface.pickUpBoxLeft();
+                                        break;
+
+                                    case 1:
+                                        robotInterface.switchBox(false);
+                                        break;
+
+                                    case 2:
+                                        robotInterface.switchBox(true);
+                                        break;
+
+                                    default:
+                                        System.err.println("túl sokadik doboz");
+                                        break;
+                                }
+
+                                found++;
                             }
                         }
                     }
